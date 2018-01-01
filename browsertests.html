@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-gb">
+<head>
+	<meta charset="utf-8">	
+	<!--favicon generated at http://www.favicon.cc/-->
+	<!--planned colour scheme http://www.colourlovers.com/palette/1652360/Mexican_Zarape-->
+	<title>Valiants Vintage Vestures | Classically styled apparel delivered to your door</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- 
+		in trying to speed up page load, this. 
+		https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+		it didn't work
+		<link rel="stylesheet" media="only screen and (color) and (max-width: 960px)" href="css/960-max-styles.css" />
+		<link rel="stylesheet" media="only screen and (color) and (max-width: 740px)" href="css/740-styles.css" />
+		<link rel="stylesheet" media="only screen and (color) and (max-width: 560px)" href="css/560-styles.css" />
+		<link rel="stylesheet" media="only screen and (color) and (min-width: 960px)" href="css/960-min-styles.css" /> 
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link id="page_favicon" href="/favicon.ico" rel="icon" type="image/x-icon">
+	<noscript>
+		<link rel="stylesheet" href="css/fallbackstyle.css">
+	</noscript>
+</head>
+<body>
+	<noscript>please enable Javascript for the full interactive experience</noscript>
+	<nav id="skipnavigation">
+		<a href="#maincontent" tabindex="0">skip navigation</a>
+	</nav>
+	<header>
+		<a href="index.html" tabindex="0">
+			<img id="logo" alt="Valiants  Vestures Store" src="logo-sm.png" />
+		</a>
+		<h1>Valiants Vintage Vestures</h1>
+		<div></div>
+		<form tabindex="0">
+			<fieldset>
+				<legend>Product Search</legend>
+				<!-- <input type='text' id='topsearch' name='search'/> -->
+				<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
+				<label id="topsearch">Search
+					<input list="itemsList" id="topsearchBox" name="search" placeholder="Search Items" />
+				</label>
+				<datalist id="itemsList">
+
+				</datalist>
+				<button type="submit">Search</button>
+			</fieldset>
+		</form>
+		<nav id="categories" tabindex="0">
+			<a href="products.html#shirts">Shirts</a>
+			<a href="products.html#breeches">Breeches</a>
+			<a href="products.html#tunics">Tunics</a>
+			<a href="products.html#cloaks">Cloaks</a>
+		</nav>
+		<aside id="shoppingcart" tabindex="0">
+			<h2>Shopping Cart</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Qty</th>
+						<th>Item</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody id="cartcontents">
+					<tr>
+						<td>
+							<img src="img/cart.svg" alt="Shopping cart">
+						</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+				<tfoot id="cartTotal">
+					
+				</tfoot>
+			</table>
+			<a href='checkout.html'>Checkout</a>
+		</aside>
+		<!-- https://coderwall.com/p/p0nvjw/creating-a-semantic-breadcrumb-using-html5-microdata -->
+		<ul class="breadcrumb" itemscope itemtype="http://schema.org/breadcrumb">
+			<li>
+				<a href="index.html" itemprop="homepage-url">
+					<span itemprop="title"> Test</span>
+				</a>
+			</li>
+			<li>
+				<a href="products.html" itemprop="all-products-url">
+					<span itemprop="title">TEST</span>
+				</a>
+			</li>
+			<li>
+				<span itemprop="title">Test Ll</span>
+			</li>
+		</ul>
+	</header>
+	<main id="products" class="product">
+		<section id="Shirts">
+			<h3>Shirts</h3>
+			<section>
+				<h4>Vintage Shirt</h4>
+				<figure>
+					<img src="img/shirt/shirt1.jpg" alt="">
+					<figcaption>Vintage Shirt. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/shirt/shirt2.jpg" alt="">
+					<img src="img/shirt/shirt3.jpg" alt="">
+					<img src="img/shirt/shirt4.jpg" alt="">
+					<figcaption>Vintage Shirt Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>Casually styled yet with a deft touch when it comes to detail, this easy-to-wear suede shirt is the perfect everyday
+					jacket for both town and country. Styled in soft, supple suede from our trusted specialist manufacturer, it offers fantastic
+					quality and value. Fully lined with single button cuffs, integrated vertical and flap pockets and breast pocket on inside
+					left.</p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>100% leather. </li>
+					<li>Lining 100% polyester.</li>
+					<li>Specialist dry clean only.</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Vintage Shirt">
+					<input type="hidden" name="price" value="44.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize00">Small</label>
+						<input type="radio" id="smallsize00" value="small" name="size" required="true">
+						<label for="mediumsize00">Medium</label>
+						<input type="radio" id="mediumsize00" value="medium" name="size" required="true">
+						<label for="largesize00">Large</label>
+						<input type="radio" id="largesize00" value="large" name="size" required="true">
+						<label for="x-largesize00">X-Large</label>
+						<input type="radio" id="x-largesize00" value="x-large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="browncolour00">Brown</label>
+						<input type="radio" id="browncolour00" value="brown" name="colour" required="true">
+						<label for="blackcolour00">Black</label>
+						<input type="radio" id="blackcolour00" value="black" name="colour" required="true">
+						<label for="orangecolour00">Orange</label>
+						<input type="radio" id="orangecolour00" value="orange" name="colour" required="true">
+						<label for="beigecolour00">Beige</label>
+						<input type="radio" id="beigecolour00" value="beige" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments00">notes</label>
+						<textarea id="comments00" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£44.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<article>			
+		</article>
+	</main>
+	<div id='tests'>	
+	</div>
+	<footer>
+		<nav>
+			<a href='index.html'>Home</a> |
+			<a href='contact.html'>Contact Us</a> |
+			<a href='terms.html'>Terms and Conditions</a> |
+			<a href='blog.html'>vvv Blog</a>
+		</nav>
+		<section>
+			<h4>&copy; Valiants Vintage Vestures 2017</h4>
+		</section>
+	</footer>
+	<script src='js/tests.js'></script> 
+	<script src='js/home.js'></script>
+	<script src='js/basket.js'></script>
+	<script src='js/catalog.js'></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+	"short_name":"VVV",
+	"name":"Valiants Vintage Vestures",
+	
+	"start_url":"/index.html",
+	"background_color":"#c40e14",
+	"display":"standalone",
+	"theme_color":"#602d90",
+	"icons":[
+		{
+			"src":"img/icons/vvv-1x.png",
+			"type":"image/png",
+			"sizes":"48x48"
+		},
+		{
+			"src":"img/icons/vvv-2x.png",
+			"type":"image/png",
+			"sizes":"96x96"
+		},
+		{
+			"src":"img/icons/vvv-3x.png",
+			"type":"image/png",
+			"sizes":"144x144"
+		},
+		{
+			"src":"img/icons/vvv-4x.png",
+			"type":"image/png",
+			"sizes":"192x192"
+		},
+		{
+			"src":"img/icons/vvv-512.png",
+			"type":"image/png",
+			"sizes":"512x512"
+		}
+	]
+}

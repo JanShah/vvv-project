@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en-gb">
+<head>
+	<title>Valiants Vintage Vestures Online Store Product Information </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link id="page_favicon" href="/favicon.ico" rel="icon" type="image/x-icon">
+	<link rel="canonical" href="https://vvv.today/product.html">
+	<meta name="theme-color" content="#602d90">
+	<meta name="msapplication-navbutton-color" content="#602d90">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#602d90">
+	<link rel="stylesheet" href="css/fallbackstyle.css">
+</head>
+
+<body>
+	<noscript>please enable Javascript for the full interactive experience</noscript>
+	<script>
+		//redirect to products.html if scripting is on. 
+		window.location.assign('/products.html')
+	</script>
+	<nav id="skipnavigation">
+		<a href="#products" tabindex="0">skip to products</a>
+	</nav>
+	<header>
+		<a href="index.html" tabindex="0">
+			<img id="logo" alt="Valiants  Vestures Store" src="logo-sm.png">
+		</a>
+		<h1>Valiants Vintage Vestures</h1>
+		<div></div>
+		<form tabindex="0">
+			<fieldset>
+				<legend>Product Search</legend>
+				<!-- <input type="text" id="topsearch" name="search"/> -->
+				<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
+				<label id="topsearch">Search
+					<input list="itemsList" id="topsearchBox" name="search" placeholder="Search Items">
+				</label>
+				<datalist id="itemsList">
+
+				</datalist>
+				<button type="submit">Search</button>
+			</fieldset>
+		</form>
+		<nav id="categories" tabindex="0">
+			<a href="#shirts">Shirts</a>
+			<a href="#breeches">Breeches</a>
+			<a href="#tunics">Tunics</a>
+			<a href="#cloaks">Cloaks</a>
+			<a href="#">All products</a>
+		</nav>
+		<aside id="shoppingcart" tabindex="0">
+			<h2>Shopping Cart</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Qty</th>
+						<th>Item</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody id="cartcontents"></tbody>
+				<tfoot id="cartTotal"></tfoot>
+			</table>
+						<a href="checkout.html">Checkout</a>
+		</aside>
+		<!-- https://coderwall.com/p/p0nvjw/creating-a-semantic-breadcrumb-using-html5-microdata -->
+		<ul class="breadcrumb" itemscope="" itemtype="http://schema.org/breadcrumb">
+			<li>
+				<a href="index.html" itemprop="homepage-url">
+					<span itemprop="title">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="products.html" itemprop="all-products-url">
+					<span itemprop="title">Catalog</span>
+				</a>
+			</li>
+			<li>All</li>
+		</ul>
+		<figure id="banner" class="shopping">
+			<img id="homebanner" src="img/banner3.jpg" alt="by Albert Kretschmer, Berin, and Dr. Carl Rohrbach. (Costumes of All Nations (1882))">
+			<figcaption>By by Albert Kretschmer, painters and costumer to the Royal Court Theatre, Berin, and Dr. Carl Rohrbach.
+				<cite> (Costumes of All Nations (1882)) [Public domain]</cite>,
+				<cite>via Wikimedia Commons</cite>
+			</figcaption>
+
+		</figure>
+	</header>
+
+
+	<main id="products" class="product">
+		<h2>Products</h2>
+		<section id="Shirts">
+			<h3>Shirts</h3>
+			<section>
+				<h4>Vintage Shirt</h4>
+				<figure>
+					<img src="img/shirt/shirt1.jpg" alt="">
+					<figcaption>Vintage Shirt. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/shirt/shirt2.jpg" alt="">
+					<img src="img/shirt/shirt3.jpg" alt="">
+					<img src="img/shirt/shirt4.jpg" alt="">
+					<figcaption>Vintage Shirt Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>Casually styled yet with a deft touch when it comes to detail, this easy-to-wear suede shirt is the perfect everyday
+					jacket for both town and country. Styled in soft, supple suede from our trusted specialist manufacturer, it offers fantastic
+					quality and value. Fully lined with single button cuffs, integrated vertical and flap pockets and breast pocket on inside
+					left.</p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>100% leather. </li>
+					<li>Lining 100% polyester.</li>
+					<li>Specialist dry clean only.</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Vintage Shirt">
+					<input type="hidden" name="price" value="44.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize00">Small</label>
+						<input type="radio" id="smallsize00" value="small" name="size" required="true">
+						<label for="mediumsize00">Medium</label>
+						<input type="radio" id="mediumsize00" value="medium" name="size" required="true">
+						<label for="largesize00">Large</label>
+						<input type="radio" id="largesize00" value="large" name="size" required="true">
+						<label for="x-largesize00">X-Large</label>
+						<input type="radio" id="x-largesize00" value="x-large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="browncolour00">Brown</label>
+						<input type="radio" id="browncolour00" value="brown" name="colour" required="true">
+						<label for="blackcolour00">Black</label>
+						<input type="radio" id="blackcolour00" value="black" name="colour" required="true">
+						<label for="orangecolour00">Orange</label>
+						<input type="radio" id="orangecolour00" value="orange" name="colour" required="true">
+						<label for="beigecolour00">Beige</label>
+						<input type="radio" id="beigecolour00" value="beige" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments00">notes</label>
+						<textarea id="comments00" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£44.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<section>
+			<h3>Shirts</h3>
+			<section>
+				<h4>Beowulf Shirt</h4>
+				<figure>
+					<img src="img/shirt/beowulf-shirt1.jpg" alt="">
+					<figcaption>Beowulf Shirt. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/shirt/beowulf-shirt2.jpg" alt="">
+					<img src="img/shirt/beowulf-shirt3.jpg" alt="">
+					<figcaption>Beowulf Shirt Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>Like so much other Nordic-style and Celtic-style garb, this practical lace up shirt with padded sleeves is made of 100
+					percent cotton in linen weave. The brown stripes at the elbows form a powerful contrast to the light, unbleached cotton
+					colour, and the lacing at the neckline is playfully repeated on the sleeves. The stand-up collar and sleeves are padded
+					and quilted, which means this lace up shirt is perfect for wearing underneath our Beowulf Leather Jerkin. Or – of course
+					– as standalone outer wear!</p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>Lightweight</li>
+					<li>Cotton</li>
+					<li>Lace-up</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Beowulf Shirt">
+					<input type="hidden" name="price" value="64.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize10">Small</label>
+						<input type="radio" id="smallsize10" value="small" name="size" required="true">
+						<label for="mediumsize10">Medium</label>
+						<input type="radio" id="mediumsize10" value="medium" name="size" required="true">
+						<label for="largesize10">Large</label>
+						<input type="radio" id="largesize10" value="large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="blackcolour10">Black</label>
+						<input type="radio" id="blackcolour10" value="black" name="colour" required="true">
+						<label for="whitecolour10">White</label>
+						<input type="radio" id="whitecolour10" value="white" name="colour" required="true">
+						<label for="orangecolour10">Orange</label>
+						<input type="radio" id="orangecolour10" value="orange" name="colour" required="true">
+						<label for="bluecolour10">Blue</label>
+						<input type="radio" id="bluecolour10" value="blue" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments10">notes</label>
+						<textarea id="comments10" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£64.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<section id="cloaks">
+			<h3>cloaks</h3>
+			<section>
+				<h4>Lined cape, opera cloak</h4>
+				<figure>
+					<img src="img/cloak/cloak1.jpg" alt="">
+					<figcaption>Lined cape, opera cloak. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/cloak/cloak2.jpg" alt="">
+					<img src="img/cloak/cloak3.jpg" alt="">
+					<img src="img/cloak/cloak4.jpg" alt="">
+					<figcaption>Lined cape, opera cloak Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>Fully lined in satin, taffeta or cotton, this beautiful cape is suitable for so many era's. These really are perfect
+					as opera cloaks or just a garment to go with costumes of most era''s. Regulars to our Annual Jane Austen Regency ball
+					would really benefit from one of these to arrive and leave in for instance.</p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>Made from 100 percent Natural Woven Cotton</li>
+					<li>Available in a Variety of Colors</li>
+					<li>Great for Medieval Reenactments and Renaissance Fairs</li>
+					<li>Modeled After Medieval-Era Clothing</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Lined cape, opera cloak">
+					<input type="hidden" name="price" value="164.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize01">Small</label>
+						<input type="radio" id="smallsize01" value="small" name="size" required="true">
+						<label for="mediumsize01">Medium</label>
+						<input type="radio" id="mediumsize01" value="medium" name="size" required="true">
+						<label for="largesize01">Large</label>
+						<input type="radio" id="largesize01" value="large" name="size" required="true">
+						<label for="x-largesize01">X-Large</label>
+						<input type="radio" id="x-largesize01" value="x-large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="browncolour01">Brown</label>
+						<input type="radio" id="browncolour01" value="brown" name="colour" required="true">
+						<label for="whitecolour01">White</label>
+						<input type="radio" id="whitecolour01" value="white" name="colour" required="true">
+						<label for="orangecolour01">Orange</label>
+						<input type="radio" id="orangecolour01" value="orange" name="colour" required="true">
+						<label for="greycolour01">Grey</label>
+						<input type="radio" id="greycolour01" value="grey" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments01">notes</label>
+						<textarea id="comments01" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£164.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<section id="tunics">
+			<h3>tunics</h3>
+			<section>
+				<h4>Lace up Tunic</h4>
+				<figure>
+					<img src="img/tunic/tunic2.jpg" alt="">
+					<figcaption>Lace up Tunic. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/tunic/tunic1.jpg" alt="">
+					<img src="img/tunic/tunic3.jpg" alt="">
+					<img src="img/tunic/tunic4.jpg" alt="">
+					<figcaption>Lace up Tunic Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>The Medieval Lace-Up Tunic is a simple but none-the-less attractive tunic that can be used in the creation of a dozen
+					or more different types of looks. From pirates to poets to peasants and more, this tunic looks great in a variety of
+					styles. Made from 100 percent natural woven cotton, this tunic has an authentic and rustic look combined with the ease
+					of care found in most modern garments. The tunic is also quite comfortable to wear and provides a modicum of protection
+					from the elements when worn. This tunic laces half-way up the front, from approximately mid-chest to the neck. The sleeves
+					are full-length and comfortably fitted to the arm. This tunic also has a hem that extends down further then the waist,
+					the hem is just barely knee-length. The Medieval Lace-Up Tunic is available in a variety of attractive colors.</p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>Made from 100 percent Natural Woven Cotton</li>
+					<li>Available in a Variety of Colors</li>
+					<li>Great for Medieval Reenactments and Renaissance Fairs</li>
+					<li>Modeled After Medieval-Era Clothing</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Lace up Tunic">
+					<input type="hidden" name="price" value="29.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize02">Small</label>
+						<input type="radio" id="smallsize02" value="small" name="size" required="true">
+						<label for="mediumsize02">Medium</label>
+						<input type="radio" id="mediumsize02" value="medium" name="size" required="true">
+						<label for="largesize02">Large</label>
+						<input type="radio" id="largesize02" value="large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="browncolour02">Brown</label>
+						<input type="radio" id="browncolour02" value="brown" name="colour" required="true">
+						<label for="blackcolour02">Black</label>
+						<input type="radio" id="blackcolour02" value="black" name="colour" required="true">
+						<label for="whitecolour02">White</label>
+						<input type="radio" id="whitecolour02" value="white" name="colour" required="true">
+						<label for="beigecolour02">Beige</label>
+						<input type="radio" id="beigecolour02" value="beige" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments02">notes</label>
+						<textarea id="comments02" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£29.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<section>
+			<h3>tunics</h3>
+			<section>
+				<h4>Roman Tunic with Gold Trim</h4>
+				<figure>
+					<img src="img/tunic/romantunic1.jpg" alt="">
+					<figcaption>Roman Tunic with Gold Trim. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/tunic/romantunic2.jpg" alt="">
+					<figcaption>Roman Tunic with Gold Trim Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>In antiquity, garb like this red tunic with golden trim was very popular with Roman men. Men of all stations of life
+					would have worn a tunic like this one in most situations. Made of 100 percent cotton, the hem and sleeves of our red
+					tunic are edged with decorative, shimmering golden trim. Tie the golden cord sash around your waist and knot it as you
+					like. The golden cord sash adjusts this red &amp; gold tunic to fit your figure perfectly.</p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>Made from 100 percent Natural Woven Cotton</li>
+					<li>Manufacturer: Windlass</li>
+					<li>Great for Medieval Reenactments and Renaissance Fairs</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Roman Tunic with Gold Trim">
+					<input type="hidden" name="price" value="74.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize12">Small</label>
+						<input type="radio" id="smallsize12" value="small" name="size" required="true">
+						<label for="mediumsize12">Medium</label>
+						<input type="radio" id="mediumsize12" value="medium" name="size" required="true">
+						<label for="largesize12">Large</label>
+						<input type="radio" id="largesize12" value="large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="browncolour12">Brown</label>
+						<input type="radio" id="browncolour12" value="brown" name="colour" required="true">
+						<label for="blackcolour12">Black</label>
+						<input type="radio" id="blackcolour12" value="black" name="colour" required="true">
+						<label for="orangecolour12">Orange</label>
+						<input type="radio" id="orangecolour12" value="orange" name="colour" required="true">
+						<label for="greycolour12">Grey</label>
+						<input type="radio" id="greycolour12" value="grey" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments12">notes</label>
+						<textarea id="comments12" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£74.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<section id="breeches">
+			<h3>breeches</h3>
+			<section>
+				<h4>Adventurer Pants</h4>
+				<figure>
+					<img src="img/breeches/breeches1.jpg" alt="">
+					<figcaption>Adventurer Pants. Click to enlarge</figcaption>
+				</figure>
+				<figure>
+					<img src="img/breeches/breeches2.jpg" alt="">
+					<img src="img/breeches/breeches3.jpg" alt="">
+					<img src="img/breeches/breeches4.jpg" alt="">
+					<figcaption>Adventurer Pants Thumbs</figcaption>
+				</figure>
+			</section>
+			<section>
+				<h4>Description</h4>
+				<p>Comfortable, stylish, and classic in their appeal with just enough detail, the Adventurer Pants are an essential addition
+					to reenactment wardrobes. Do not forget this important piece of clothing when embarking on your next quest! Made of
+					a smooth, comfortable cotton fabric, these medieval mens pants have a gentle taper that follows the natural shape of
+					the legs. The front features a lace-up fly, and wide belt loops around the waist make it easy to accessorize with your
+					favorite medieval belt. Lacing up the sides of the ankles lets you tighten these openings either for style or to keep
+					them close-fitting while wearing boots. When it comes to high adventure, dress the part in the versatile and comfy Adventurer
+					Pants. Many colors are available to best suit your specific character. </p>
+			</section>
+			<section>
+				<h4>Additional Information</h4>
+				<ul>
+					<li>Displays black jodhpur pants</li>
+					<li>Made from 100% cotton twill fabric</li>
+					<li>Presents fitted waist with buttons and belt loops</li>
+					<li>Includes adjustable side buckles for a perfect fit</li>
+					<li>Offers flared hips and upper legs</li>
+					<li>Button closure along calf</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Product Options</h4>
+				<form>
+					<input type="hidden" name="garment" value="Adventurer Pants">
+					<input type="hidden" name="price" value="29.99">
+					<fieldset>
+						<legend>size</legend>
+						<label for="smallsize03">Small</label>
+						<input type="radio" id="smallsize03" value="small" name="size" required="true">
+						<label for="mediumsize03">Medium</label>
+						<input type="radio" id="mediumsize03" value="medium" name="size" required="true">
+						<label for="largesize03">Large</label>
+						<input type="radio" id="largesize03" value="large" name="size" required="true">
+						<label for="x-largesize03">X-Large</label>
+						<input type="radio" id="x-largesize03" value="x-large" name="size" required="true">
+					</fieldset>
+					<fieldset>
+						<legend>colour</legend>
+						<label for="browncolour03">Brown</label>
+						<input type="radio" id="browncolour03" value="brown" name="colour" required="true">
+						<label for="blackcolour03">Black</label>
+						<input type="radio" id="blackcolour03" value="black" name="colour" required="true">
+						<label for="orangecolour03">Orange</label>
+						<input type="radio" id="orangecolour03" value="orange" name="colour" required="true">
+						<label for="beigecolour03">Beige</label>
+						<input type="radio" id="beigecolour03" value="beige" name="colour" required="true">
+					</fieldset>
+					<fieldset class="notes">
+						<legend>Notes</legend>
+						<label for="comments03">notes</label>
+						<textarea id="comments03" rows="2" cols="40" name="comments"></textarea>
+					</fieldset>
+					<section class="productprice">£29.99</section>
+					<input type="submit" value="Add to Cart">
+				</form>
+			</section>
+		</section>
+		<article>
+			<h4>Valiant is an interesting name</h4>
+			<p>What"s more surpising, is the origin of it. These excerpts from surnamedb should pique your interest.</p>
+			<section>
+				<h4>Last name: Valiant</h4>
+				<p>SDB Popularity ranking: 12768</p>
+				<q>
+					Recorded in some twenty spellings, many quite rare and including Valera, Valero (Italian), Valere, Valeri (French), Valero
+					(Spanish) and Valiant (English). It may also be a "Crusader" name. That was a name that was originally associated in
+					someway with the famous Crusades to the Holy Land in the 12th century. Many soldiers and pilgrims returning from these
+					Crusades gave their children names associated with the bible and early Christian martyrs
+				</q>
+				<cite>Read more
+					<a href="http://www.surnamedb.com/Surname/Valiant#ixzz51owQsiKy">at surnamedb.com</a>
+				</cite>
+			</section>
+		</article>
+	</main>
+	<footer>
+		<img src="logo-sm.png" alt="VVV">
+		<nav>
+			<a href="index.html">Home</a> |
+			<a href="contact.html">Contact Us</a> |
+			<a href="terms.html">Terms and Conditions</a> |
+			<a href="blog.html">vvv Blog</a>
+		</nav>
+		<section>
+			<h5>© Valiants Vintage Vestures 2017</h5>
+		</section>
+	</footer>
+</body>
+
+</html>

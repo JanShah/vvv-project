@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang='en-gb'>
+<head>
+	<title>Checkout | Valliant's Vintage Vestures</title>	
+	<meta charset='utf-8'>
+</head>
+<body>	
+	<nav id='skipnavigation'>
+		<a href='#checkout'>skip to checkout</a>
+	</nav>
+	<header>
+		<a href='index.html'><img id='logo' alt="Valliant's Vintage Vestures" src='logo-sm.png'/></a>
+		<h1>Valliant's Vintage Vestures</h1>
+		<nav id='categories'>
+			<a href='products.html#shirts'>Shirts</a> | <a href='products.html#breeches'>Breeches</a> | <a href='products.html#tunics'>Tunics</a> | <a href='products.html#cloaks'>Cloaks</a>
+		</nav>
+	</header>
+	<main>
+		<h2>Checkout</h2>
+		<section>
+			<h3>Basket Contents</h3>
+			<table id='cartcontents'>
+				<thead><tr><th>Qty</th><th>Item</th><th>Price</th><th>Remove</th></tr></thead>
+				<tbody><tr><td>1</td><td>Shirt (size 44, Black)</td><td>&pound;44.99</td><td><button>Remove</button></td></tr></tbody>
+				<tbody><tr><td>1</td><td>Tunic (size Medium, Honey Brown)</td><td>&pound;24.99</td><td><button>Remove</button></td></tr></tbody>
+				<tbody><tr><td>1</td><td>Cloak (size Large, Black)</td><td>&pound;184.99</td><td><button>Remove</button></td></tr></tbody>
+				<tfoot><tr><td colspan=2>Total</td><td colspan=2>&pound;254.97</td></tfoot>
+			</table>
+		</section>
+		<section>
+			<h3>Your details</h3>
+
+			<p>Please enter your personal details to complete checkout</p>
+			<form id='checkout' method='POST'>
+				<input type='hidden' name='cartcontents' value="">
+				<label for='firstName'>First Name</label><input id='firstName' type='text' name='firstName'/>
+				<label for='surname'>Surname</label><input  id='surname' type='text' name='surname'/>
+				<label for='email'>email</label><input  id='email' type='text' name='email'/>
+				<input type='submit' value='Complete Checkout' />
+			</form>
+		</section>	
+		<section>
+			<h4>Thank you</h4>
+			<p> for taking the time to browse and shop at Valliant's Vintage Vestures.  Once you have completed checkout, you should receive your order within 5 working days. 
+		</section>
+	</main>
+	<footer>		
+		<aside>
+			<nav id='footernav'>
+				<a href='index.html'>Home</a> | <a href='contact.html'>Contact Us</a> | <a href='terms.html#terms'>Terms and Conditions</a> | <a href='blog.html'>vvv Blog</a>
+			</nav>
+		</aside>
+		<section id='copyright'>
+			<h4>&copy; Valliant's Vintage Vestures 2017</h4>
+		</section>
+	</footer>
+	
+</body>
+</html>

@@ -1,0 +1,147 @@
+
+main section table thead {
+	text-align:right;
+	color:#602d90;
+}
+
+main section table thead th:nth-of-type(1), 
+main section table thead th:nth-of-type(2) {
+	text-align:left;
+
+}
+main section #subtotals {
+		padding: 20px;
+		width: 100%;
+		font-size:  16px;
+		background: #fff;
+		text-align:  right;
+}
+
+main section #subtotals td:nth-of-type(1) {
+	width: 42%;
+	text-align:  left;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
+
+td::-webkit-scrollbar {
+	width: 10px;
+	background:#ff9d00;
+}
+td::-webkit-scrollbar-thumb {
+	background:white;
+	border:1px solid;
+}
+main section #subtotals td:nth-of-type(2) {
+	/* text-align:  left; */
+}
+main section #subtotals td:nth-of-type(2) p {
+	margin: 0;
+	/* padding: 10px; */
+}
+
+#subtotals td[colspan='4'] {
+	text-align:right!important;
+}
+
+#subtotals td[colspan='4']+td:nth-of-type(2) {
+	border-bottom: 1px dashed;
+}
+
+#subtotals td[colspan='3']+td:nth-of-type(2):before{
+	content:'£ ';
+}
+
+/* 
+main section #subtotals td:nth-of-type(2):hover:before{
+	content:'click to edit';
+	position: absolute;
+	background: #ff9d00;
+}
+ */
+#subtotals button {
+	min-width: 40px;
+	background: #ff9d00;
+	border:  1px solid;
+	/* padding: 4px 0; */
+	font-size: 26px;
+	transition:  background 0.2s;
+	margin: 0 6px 0 0;
+}
+
+#subtotals button:hover {
+	
+background: #fed795;
+}
+#subtotals button{
+	font-size:0;
+}
+#subtotals button#deleteItem:after {
+	content: url('../img/cartDelete.svg');
+
+	font-size:  0;
+}
+#subtotals button:nth-of-type(1):after {
+	content: url('../img/cartMinus.svg');
+	/* position:  absolute; */
+	/* top: 0; */
+	/* left: 0; */
+	font-size:  0;
+}
+
+#subtotals button:nth-of-type(2):after {
+	content: url('../img/cartAdd.svg');
+	/* position:  absolute; */
+	/* top: 0; */
+	/* left: 0; */
+	font-size:  0;
+}
+/* #subtotals td:nth-of-type(2).editing {
+	border:1px solid;
+}
+#subtotals td:nth-of-type(2).editing button:nth-of-type(1),
+#subtotals td:nth-of-type(2).editing button:nth-of-type(2) {
+	min-width: 20px;
+	padding:  0;
+	float:  left;
+}
+
+#subtotals td:nth-of-type(2).editing button:nth-of-type(2) {
+	float:right;
+	
+}
+#subtotals td:nth-of-type(2).editing section {
+	width: 55px;
+	height: 20px;
+	background: #fed795;
+	position:  absolute;
+	margin-top:  -13px;
+	z-index:  10;
+} */
+
+main section #subtotals td:nth-of-type(4):before,
+main section #subtotals td:nth-of-type(3):before {
+	content:'£ ';
+}
+
+
+@media (min-width: 0px) and (max-width: 559px)  {
+	main section #subtotals td:nth-of-type(1) {		
+		max-height: 62px;				
+		overflow-y: auto;				
+		/* display: inline-block;				 */
+		overflow-x: hidden;				
+		max-width:  163px;				
+		float:  left;				
+		width: 100px;
+	}
+}
+
+@media (min-width: 560px)and (max-width: 739px) {
+	header form {
+		/* float: right; */
+		/* margin-right: 0; */
+		/* margin-top: 0; */
+		/* width: calc(100% - 100px); */
+	}
+}

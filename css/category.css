@@ -1,0 +1,164 @@
+/*  all products css  */
+#category > section > figure:nth-of-type(1) {
+	min-height: 471px;	
+	max-width: calc(88% - 10px);
+	margin: 10px auto;
+	float:  none;
+}
+
+#category > section > section:nth-of-type(1) {
+  overflow:  hidden;
+}
+
+#category > h2 {
+  float:  none;
+}
+
+
+#category > section {
+	width: 36%;
+	float:  left;
+	overflow: hidden;
+	margin: 0 5px 10px 5px;
+	width: calc(50% - 30px);
+	padding: 10px;
+	min-height: 200px;
+	max-width:  100%;
+}
+
+#category > section >img {
+	float:left;
+	width:  auto;
+	margin:  3px;
+}
+
+#category > section:first-child {
+	color:black;
+}
+
+#category section .largeImage {
+	margin:0;
+	padding: 0;
+}
+#category section.outer {
+	height: 300px;
+	float:left;
+	text-align:center;
+}
+.outer figure {
+	margin:0;
+	padding:0;
+
+}
+.outer > a {
+  width: 50%;
+  display:  inline-block;
+}
+
+.outer img {
+  width: 100px;
+}
+
+.outer button {
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	padding:10px;
+	border:1px solid #333;
+	margin:3px;
+}
+@media (max-width: 1200px) {
+	#category > section {
+		width: calc(50% - 30px);
+		min-height: 535px;
+		margin: 0 5px 10px 5px;
+		padding:  10px;
+		font-size: 90%;
+		background: #fea;
+	}
+
+	#category > section > img {
+		float: none;
+		max-width:  calc(100% - 6px);
+		display:  block;
+		margin:  0 auto;
+		padding-bottom: 5px;
+	}
+	#category > section > h3 {
+		font-size:1.1em;
+		text-align:center;
+		min-height:  60px;
+	}
+}
+
+#category h3 {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 740px) {
+
+	#category > section {
+		width: calc(50% - 30px);
+		padding: 10px;
+		margin: 5px;
+	}
+}
+
+@media (max-width: 560px) {
+
+	#category > section {
+		width: calc(100% - 20px);
+		margin: 0;
+		height: 147px;
+		min-height: 175px;
+	}
+
+	#category section h3 {
+		
+min-height:  23px;
+		
+text-align:  right;
+	}
+	#category section p {
+		font-size:90%;
+		text-overflow:  ellipsis;
+	}
+	
+	#category > section > img {
+		float:left;
+		max-height: 182px;
+		margin-top: -20px;
+		margin-left:  -20px;
+	}
+
+}
+
+@media (min-width: 1200px) {
+	#category > section {
+		width:calc(25% - 30px);
+		min-height: 555px;
+		background: #fea;
+	}
+	#category section.outer {
+		width: calc(75% - 30px);
+	}
+	#category h3 {
+		min-height: 55px;
+	}
+
+	#category > section >img {
+		max-height:  100px;
+	}
+
+	#category > section > p {
+		margin:  0;
+		text-align:  justify;
+	}
+
+	#category > section:nth-of-type(5n+1) figure {
+		width: 40%;
+		float: left;
+	}
+
+}

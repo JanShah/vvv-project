@@ -1,0 +1,748 @@
+body > section {
+	margin: 0 auto;
+}
+
+
+#tests {
+	background: white;
+	padding: 20px;
+	height:  100%;
+	width: calc(100% - 40px);
+	float:  left;
+}
+
+#tests p {font-size:  16px;padding-top: 300px;background:  #999;}
+/* https://learn.shayhowe.com/advanced-html-css/complex-selectors/ */
+
+
+.product, .blog {
+	max-width: 100%;
+	float:  left;
+	width: 100%;
+	background:  none;
+	padding: 0;
+}
+
+.product > h2, .contact > h3 {
+	margin: 10px;
+	float: left;
+	padding: 10px;
+	background:  white;
+}
+
+.product h2 {
+	font-size: 1.5em;
+	font-variant: all-small-caps;
+	/* position:  absolute; */
+	/* left: -1000%; */
+	top: 0;
+}
+
+.product figcaption {
+	font-size: 90%;
+}
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type*/
+.product figure:nth-of-type(2) img {
+	width: calc(33% - 20px);
+	height: auto;
+	border: 1px solid #0f0f0d;
+	margin: 4px;
+	padding: 5px;
+}
+
+.product #cartcontents {
+	width: 800px;
+}
+
+.product img {
+	width: calc(100% - 12px);
+	margin-bottom: 10px;
+	max-width: 480px!important;
+	cursor: pointer;
+}
+
+.product > section {
+	clear: left;
+	border: 1px solid rgba(51, 51, 51, 0.62);
+	padding: 10px;
+	box-shadow: 0px 0px 8px 0px rgba(51, 51, 51, 0.62);
+	margin: 15px auto;
+	box-sizing: border-box;
+	/* max-width: calc(100% - 30px); */
+	min-height: calc(100vh - 30px);
+	background: #fff;
+	max-width: 1600px;
+}
+
+.product section h3,
+.product section h4 {
+	margin:5px;
+	font-size: 1em;
+	font-weight:  500;
+}
+.product section > h3 {
+	font-variant:  all-petite-caps;
+	font-size: 1.5em;
+	/* position:  absolute; */
+	/* left:  -1000%; */
+}
+
+.product section figure {
+	float: left;
+	position: relative;
+	max-width: 100%;
+	margin: 5px;
+}
+.product > section > section:nth-of-type(1) {
+	width: calc(35% - 48px);
+	float:left;
+	position:relative;
+	margin: 4px;
+	padding: 0 20px;
+}
+
+.product > section > section ~ section {
+	float: right;
+	/* position: relative; */
+	width: calc(65% - 40px);
+	padding: 10px;
+	/* text-align:justify; */
+	/* display:  block; */
+}
+
+
+
+.product section form fieldset {
+	float: left;
+	width: calc(50% - 8px);
+	margin: 4px;
+	padding: 10px;
+	border: 2px solid rgba(51, 51, 51, 0.62);
+	clear: right;
+	min-height: 85px;
+	box-sizing:  border-box;
+}
+
+.product section form fieldset:nth-of-type(1) {
+	border: 2px solid rgba(96, 45, 144, .5);	
+}
+
+.product section form fieldset:nth-of-type(2) {
+	border: 2px solid rgba(238, 17, 24, .5);	
+}
+.product section form fieldset.notes {
+	border: 2px solid rgba(255, 157, 0, .5);	
+	width: calc(100% - 8px);
+	min-height: 100px;
+}
+.product section form fieldset.notes textarea {
+	width: calc(100% - 6px);
+	min-height: 50px;
+	background: #eef;
+	resize: none;
+	overflow: hidden;
+	height: 70px;
+}
+.product section form fieldset legend{
+	font-size: 1.1em;
+	max-height: 20px;
+	padding: 0 10px;
+	background: #fff;
+}
+.product section form fieldset input {
+	/* clear:  left; */
+	float:  left;
+	margin: 5px;
+	margin-right: 10px;
+	position: absolute;
+	left:  -1000%;
+}
+
+.productprice {
+	width: calc(100%  - 145px);
+	font-size:  20px;
+	text-align:  right;
+	padding:  10px;
+	float:  left;
+	margin: 10px;
+}
+
+
+input[type='radio']:after {
+  display: inline-block;
+  content: '';
+  /* width: 20px; */
+  /* height: 20px; */
+  /* background: #fed795; */
+  transition: all 0.2s;
+  border-radius: 2px;
+  /* border: 1px solid; */
+  padding: 3px;
+  margin-top: -5px;
+}
+
+input[type='radio']:hover:after {
+  display: inline-block;
+  /* content: ''; */
+  /* background: #fea; */
+  transition: all 0.2s;
+  border-radius: 2px;
+  /* border: 1px solid; */
+  padding: 3px;
+  font-size:  125%;
+}
+
+input[type='radio']:checked:after {
+	/* background:  #ff9d00; */
+	font-size:  150%;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/:checked */
+input[value='brown']:after {
+  background: brown!important;
+}
+input[value='black']:after {
+  background: black!important;
+}
+input[value='orange']:after {
+  background: orange!important;
+}
+input[value='beige']:after {
+  background: beige!important;
+  /* border:1px solid; */
+}
+input[value='white']:after {
+  background: whitesmoke;
+  /* border:1px solid; */
+}
+input[value='blue']:after {
+  background: skyblue!important;
+}
+
+input[value='grey']:after {
+  background: grey!important;
+}
+
+.product section form input[type="radio"]:checked+label:after {
+	height: 35px;
+	width: 35px;
+	/* position:  absolute; */
+	/* right: 30px; */
+	/* top: 44px; */
+	/* padding: 5px; */
+	/* font-size: 0; */
+	/* text-align:  center; */
+	border-radius: 50%;
+	color: #421f63;
+	border:  2px solid;
+	box-sizing:  border-box;
+	opacity: 1;
+}
+
+input[value='brown']+label:after {
+	content: '';
+  background: #b33a3a;
+}
+input[value='black']+label:after {
+	content: '';
+  background: #060303;
+}
+input[value='orange']+label:after {
+	content: '';
+  background: orange;
+}
+input[value='beige']+label:after {
+	content: '';
+  background: beige;
+  /* border:1px solid; */
+}
+input[value='white']+label:after {
+	content: '';
+	background: whitesmoke;
+	/* border:1px solid; */
+}
+input[value='blue']+label:after {
+	content: '';
+  background: skyblue;
+}
+
+input[value='grey']+label:after {
+  background: grey;
+}
+
+input[value='small']+label:after {
+	/* background: grey; */
+	content:'S';
+	/* color: #8feade; */
+}
+input[value='medium']+label:after {
+	/* background: grey; */
+	content:'M';
+}
+input[value='large']+label:after {
+	/*   background: grey; */
+	content:'L';
+}
+input[value='x-large']+label:after {
+	/*   background: grey; */
+	content:'XL';
+}
+
+input[type='radio']:checked:after {
+	border:  1px solid #666;
+}
+
+.product section form fieldset label:after {
+	height: 23px;
+	width: 23px;
+	padding: 4px 4px;
+	margin: 3px 5px 0px 4px;
+	color: #0f0f0d;
+	font-size: 21px;
+	/* background:  grey; */
+	border: 2px solid transparent;
+	display:  inline-block;
+	text-align:  center;
+	transition: border-radius 0.2s, border 0.2s;
+	opacity: 0.8;
+}
+.product section form > input {
+	float:  right;
+	padding:10px;
+	margin: 10px 4px;
+}
+
+.product section form fieldset label {
+	/* float:  left; */
+	/* margin: 2px 0; */
+	/* padding: 1px 0px; */
+	/* min-width: calc(100% - 40px); */
+	/* display:  inline-block; */
+	/* position:  absolute; */
+	/* left: -11%; */
+	font-size:  0;
+}
+
+
+
+.notes > label {
+	position: absolute;
+	left: -1000%;
+}
+
+.contactform, main > form {
+	padding: 10px;
+	background:  white;
+	margin: 10px auto;
+}
+
+#cartcontents td img {
+	max-width: 140px;
+	width: 140px;
+	height: 140px;
+}
+
+
+/* .productNav {
+	font-size: 16px;
+	transition: all 0.2s;
+}
+.productNavScroll {
+	font-size: 16px;
+} */
+
+tr.newItem {
+  	animation-name:flashIn;
+  	animation-duration:1.5s;
+  	opacity:1;
+}
+
+@keyframes flashIn {
+	0% {
+		background:rgba(51, 51, 51, 0.97);
+		opacity:0;
+		}
+	90% {
+		opacity:0.9;
+		background:rgba(0,0,0,0);
+
+		}
+	100% {
+		opacity:0;
+		background:rgba(255, 255, 255, 0.97);
+		}
+}
+
+
+
+#alertBox {
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	padding:30px 0;
+	background:#602d90;
+	text-align: center;
+	font-size: 20px;
+	animation-name: fadeInOut;
+	animation-duration: 2s;
+	opacity: 0;
+	z-index: 200;
+	color:white;
+}
+
+
+@keyframes fadeInOut {
+	0% {opacity: 0}
+	20% {opacity: 1}
+	80% {opacity: 1}
+	100% {opacity: 0}
+}
+
+.largeImage {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: rgba(0, 0, 0, 0.22);
+	z-index:200;
+	/* overflow-y: scroll; */
+}
+
+.largeImage > section {
+	margin: 2% auto;
+	height: auto;
+	padding: 6px;
+	/* overflow-y: scroll; */
+}
+.largeImage > section:after {
+	content:'click anywhere to close';
+	position:  absolute;
+	bottom: 20px;
+	right: 20px;
+	background: #fafaff;
+	padding: 10px;
+}
+.largeImage > section img {
+	/* max-height: 74%; */
+	margin: 0 auto;
+	display: block;
+	max-width: calc(100% - 12px);
+	box-shadow:  1px 2px 3px #0f0f0d;
+	/* position:  absolute; */
+	transition: all 0.1s;
+	width: calc(100% - 12px);
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations#Examples */
+.largeImage {
+	animation-duration: 0.4s;
+	animation-name: slidein;
+	/* opacity:  0.5; */
+}
+
+.largeImage.remover {
+	animation-name: slideout;
+}
+
+@keyframes slidein {
+	from {
+		top: -100%;
+		opacity:0;
+	}
+
+	to {
+		top: 0%;
+		opacity:1;
+	}
+}
+
+@keyframes slideout {
+	from {
+		top: 0%;
+	}
+
+	to {
+		top: -100%;
+	}
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries */
+
+
+
+@media (min-width: 0px) and (max-width: 559px)  {
+	figure#banner.shopping {
+		position:  absolute;
+		left: -1000%;
+	}
+
+	.product > section {
+		margin:0;
+		max-width: 100%;
+		float:  left;
+		margin-bottom:  20px;
+		border:  none;
+	}
+
+
+	.product {
+		/* margin-top: -79px; */
+	}
+
+	.product section figure {
+		margin: 5px auto;
+		width: 100%;
+	}
+
+	.largeImage > section:after {
+		content:'click here to close';
+	}
+	.largeImage:after {
+		content: '>';
+		position:  absolute;
+		right: 5px;
+		top: 13px;
+		width: 42px;
+		/* height: 83%; */
+		/* background: #eef; */
+		font-size: 86px;
+		color: #b00c12;
+/* 		https://www.w3schools.com/cssref/css3_pr_animation.asp */
+		animation:slideRight 1s 1;
+	}
+	
+	@keyframes slideRight {
+		0% {
+			right:5px;
+			transform:rotate(180deg);
+		}
+		49% {
+			right:135px;
+			transform:rotate(180deg);
+		}
+		50% {
+			right:135px;
+			transform:rotate(0deg);
+		}
+		100% {
+			right:5px
+		}
+
+
+	}
+
+	.product figure:nth-of-type(2) img {
+		width: calc(33% - 16px);
+		margin:2px;
+		margin-bottom: 15px;
+	}
+
+	.product > section > section:nth-of-type(1) {
+		width: calc(100% - 48px);
+	}
+
+	.product section section:nth-of-type(2), 
+	.product section section:nth-of-type(3) {
+		width: calc(100% - 20px);
+	}
+
+	.product section section:nth-of-type(4) {
+		width: calc(100% - 20px);
+	}
+
+	input[type='radio']:after {
+		/* width:15px!important; */
+		/* height:15px!important; */
+	}
+	.product section form fieldset {
+		width:calc(100% - 8px);
+	}
+
+	.product section form fieldset input {
+		margin-right:5px
+		
+	}
+
+	.product section form fieldset textarea {
+	  	width: 97%;
+  		height: 67px;
+	}
+
+}
+
+@media (min-width: 560px)and (max-width: 739px) {
+	#featured > figure {
+		float: left;
+		width: calc(50% - (2em + 20px) );
+		padding: 1em;
+		min-height: 266px;
+		margin: 10px;
+	}
+
+	#featured img  {
+		width: 100%;
+	}
+
+	.product > section {
+		margin:10px;
+		display: inline-block;
+		max-width:  calc(100% - 20px);
+	}
+	
+	.product section figure {
+		margin: 0px;
+	}
+
+	.product section > h3 {
+		position:absolute;left:-1000%;
+	}
+
+	.product > section > section:nth-of-type(1) {
+		width: calc(34% - 28px);
+		float:left;
+		position:relative;
+		padding: 0 10px;
+		margin-top: -10px;
+	}
+
+	.product section section:nth-of-type(2), 
+	.product section section:nth-of-type(3) {
+		/* width: calc(70% - 40px); */
+		/* margin-top: -20px; */
+	}
+
+	.product section section:nth-of-type(2) {
+		/* overflow-y: scroll; */
+		/* height: 150px; */
+		margin-bottom: 20px;
+		/* margin-top: 28px; */
+		background: #fafaff;
+		/* border: 1px solid #B00C12; */
+	}
+
+	.product section section:nth-of-type(3),.product section section:nth-of-type(4) {
+		width: calc(100% - 40px);
+	}
+	.product section form fieldset {
+		width: calc(100% - 8px);
+	}
+	
+	main > form input, main > form textarea {
+		width: calc(100% - 40px);
+		float:  right;
+		padding: 10px;
+		margin: 10px;
+	}
+
+	main > form input[type='submit'] {
+		width: 200px;
+		float:right;
+	}
+	main > form label {
+		/* float: left; */
+		text-align: left;
+		/* width: 100%; */
+		padding:  5px 10px;
+		/* clear: left; */
+		max-width: 100%;
+	}
+
+
+	.largeImage > section {
+		margin: 0;
+		display: inline-block;
+		width: calc(100% - 12px);
+	}
+}
+
+@media (min-width: 740px) and (max-width: 1199px) {
+
+	form.contactform {
+		float:left;
+	}
+	.product > section {
+		margin: 15px auto;
+		min-height: calc(100vh - 30px);
+		max-width: 960px;
+	}
+
+	.product > section > section:nth-of-type(1) {
+		padding: 0;
+		width: calc(30% - 8px);
+	}
+	.product > section > section ~ section {
+		width: calc(70% - 40px);
+	}
+	.product section form fieldset {
+		width: calc(50% - 8px);
+	}
+	.product section form fieldset.notes {
+		width:calc(100% - 8px);
+	}
+
+	.product section form fieldset textarea {
+		/* width: 97%; */
+		/* height: 67px; */
+	}
+
+}
+
+@media (min-width: 1200px) {
+	.product > section {
+		min-height: 750px;
+	}
+	.product > section > section:nth-of-type(1) {
+		width: calc(40% - 48px);
+		/* float: left; */
+		/* position: relative; */
+		/* margin: 4px; */
+		/* padding: 0 20px; */
+	}
+
+	.product > section > section ~ section {
+		float: right;
+		position: relative;
+		width: calc(60% - 20px);
+		padding: 10px;
+	}
+
+	.product > section figure:nth-of-type(1) {
+		float: right;
+		position: relative;
+		max-width: calc(75% - 10px);
+		margin: 5px;
+		/* background:red; */
+	}
+	.product > section figure ~ figure {
+		float: right;
+		position: relative;
+		max-width: calc(25% - 10px);
+		margin: 5px;
+	}
+
+	.product > section figure ~ figure img {
+		/* border:5px solid!important; */
+		width: calc(100% - 10px)!important;
+	}
+
+	.product section form fieldset {
+		width: calc(50% - 8px);
+	}
+
+	.product section form fieldset.notes {
+		width: calc(100% - 8px);
+		min-height: 105px;
+	}
+	.product section form fieldset textarea {
+		/* width: calc(100% - 6px); */
+		height: 60px!important;
+		border: none;
+		/* background:  #eef; */
+		/* resize:  none; */
+		overflow: hidden;
+	}
+
+}
