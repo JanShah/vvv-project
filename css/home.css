@@ -12,6 +12,29 @@ cite {
 	font-weight: bold;
 }
 
+body > section {
+  /* display:  block; */
+  float:  left;
+  width:  100%;
+  background:  white;
+  margin: -5px auto;
+}
+
+body > section figure {
+	width:50%;
+	float:left;
+	margin: 0;
+}
+body > section figure figcaption {
+	position:absolute;
+	left:-1000%;
+}
+body > section > section {
+  padding: 10px;
+  width: calc(50% - 20px);
+  float:  left;
+}
+
 main {
   max-width: 1600px;
   margin: 0 auto;
@@ -143,9 +166,9 @@ header form fieldset {
 	color: #0f0f0d;
 }
 
-label#topsearch {
+header form label {
 	position:  relative;
-	/* left: -1000%; */
+	left: -1000%;
 }
 
 nav#skipnavigation {
@@ -352,13 +375,16 @@ aside.expanded:before {
 }
 
 aside.expanded a:link,aside.expanded a:visited {
-	position:  absolute;
-	bottom:  10px;
-	right: 20px;
+	position: fixed;
+	/* bottom: 34px; */
+	/* right: 20px; */
 	font-size:  1.3em;
 	color: #000;
 	background:  none;
-	top: auto;
+	top: 45px;
+	padding:  10px;
+	background:  white;
+	right: 71px;
 }
 
 aside.expanded a:link:after  {
@@ -458,16 +484,16 @@ aside div p {
 	font-weight: bold;
 }
 aside.expanded div {
-		right: 50px;
-		top: 14px;
-		width: 72px;
+		/* right: 50px; */
+		/* top: 14px; */
+		/* width: 72px; */
 		/* height: 27px; */
 		border-radius:  5px;
 }
 
 aside.expanded div p:before {
-	content: ' qty ';
-	margin-left:5px
+	content: '';
+	/* margin-left:5px; */
 }
 
 
@@ -492,12 +518,11 @@ main > form input, main > form textarea {
 	margin: 10px;
 }
 
-main section form input[type='submit'],
-main > form input[type='submit'] {
-	max-width: 150px;
-	float:right;
-	background: #ff9d00;
-	border: 1px solid #0f0f0d;
+main section form input[type='submit'], main > form input[type='submit'] {
+	/* max-width: 150px; */
+	/* float:right; */
+	/* background: #ff9d00; */
+	/* border: 1px solid #0f0f0d; */
 }
 
 main.contact section form label,
@@ -550,6 +575,11 @@ footer nav {
 
 @media (min-width: 0px) and (max-width: 559px)  {
 
+body > section > section h2 {
+	font-size:90%;
+	margin:5px auto;
+
+}
 	header {
 		position:  fixed;
 		top: 0;
@@ -589,6 +619,9 @@ footer nav {
 		position:  relative;
 		color: inherit;
 		float:  left;
+		overflow-y: scroll;
+		max-height: calc(100vh - 100px);
+		padding-bottom: 25px;
 	}
 	header aside {
 		width: 30px;
@@ -707,13 +740,13 @@ footer nav {
 	}
 	header > nav > section > nav > a {
 		width:100%;
-		padding: 0!important;
+		/* padding: 0!important; */
 		margin: 0;
 	}
 	header > nav > a, header > nav > section > nav > a {
 		/* display:  block; */
 		text-align: center;
-		padding: 10px 0;
+		padding: 6px 0;
 		font-size: 1.5em;
 		float: left;
 		color: #0f0f0d;
@@ -739,7 +772,7 @@ footer nav {
 		text-align: left;
 		background: #421f63;
 		position: absolute;
-		left: -91%;
+		left: calc(-100% + 40px);
 		top: 0;
 		cursor:  pointer;
 		transition: none;
@@ -749,18 +782,16 @@ footer nav {
 	}
 
 	nav#categories:before {
-		content: '+';
-		height:  40px;
-		font-family: 'Arial';
-		font-size: 40px;
-		margin: 0 3px;
+		content: url('/img/menu.svg');
+		height: 30px;
+		margin: 5px 5px;
 		padding:  0;
 		float:  right;
 	}
 	
 	nav#categories:hover {
 		background: #421f63;
-		left: -93%;
+		left: calc(-100% + 45px);
 		/* height: 70px; */
 	}
 	nav#categories.expanded:hover {
@@ -840,12 +871,13 @@ footer nav {
 
 	header form input {
 		float: left;
-		width: calc(100% - 120px);
+		width: calc(100% - 100px);
 	}
 
 	header form label {
 		/* position: absolute; */
 		font-size: 0;
+		left: auto!important;
 	}
 	
 	form.expanded {
@@ -872,6 +904,7 @@ footer nav {
 	nav#categories {
 		font-size: 16px;
 	}
+	
 	header aside {top: 30px;width: 40px;}
 	
 	header aside table {
@@ -881,6 +914,11 @@ footer nav {
 	header aside.expanded  {
 		min-width: 50%;
 	}
+	header form label {
+	  	/* font-size: 0; */
+	  	left: 0!important;
+	}
+
 
 
 }

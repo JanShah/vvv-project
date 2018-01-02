@@ -1,4 +1,11 @@
-/*  all products css  */
+
+#category {
+	margin-top: 60px;
+	/* height: auto!important; */
+	min-height:  auto;
+}
+
+
 #category > section > figure:nth-of-type(1) {
 	min-height: 471px;	
 	max-width: calc(88% - 10px);
@@ -51,21 +58,32 @@
 
 }
 .outer > a {
-  width: 50%;
+  width: calc(50% - 30px);
   display:  inline-block;
 }
-
+.outer > a section {
+	width:calc(100% - 12px);
+	padding:6px;
+	margin:3px;
+	background: #fed795;
+}
+.outer > a section h4 {
+	min-height: 46px;
+	padding:6px;
+	margin:3px;
+}
+.outer > a > section > figure > figcaption {
+	height: 34px;
+}
 .outer img {
   width: 100px;
 }
 
 .outer button {
-	position: fixed;
-	right: 50px;
-	bottom: 50px;
 	padding:10px;
 	border:1px solid #333;
 	margin:3px;
+	float: right;
 }
 @media (max-width: 1200px) {
 	#category > section {
@@ -93,6 +111,7 @@
 
 #category h3 {
   margin: 0;
+  text-align:  center;
   padding: 0;
 }
 
@@ -103,6 +122,16 @@
 		padding: 10px;
 		margin: 5px;
 	}
+	.outer > a {
+		width: calc(100% - 61px);
+		float:  left;
+	}
+	.outer > a section h4 {
+		min-height: 20px;
+	}
+	.outer > a > section > figure > figcaption {
+		height: 16px;
+	}
 }
 
 @media (max-width: 560px) {
@@ -110,26 +139,53 @@
 	#category > section {
 		width: calc(100% - 20px);
 		margin: 0;
-		height: 147px;
-		min-height: 175px;
+		height: 130px;
+		min-height: 130px;
+	}
+		#category > section.outer {
+		height:  350px;
+		}
+
+	#category > section a:first-child {
+		float:left;
+		width: 30%;
+	}
+
+	#category > section:nth-of-type(2n) {
+		background:#fed795;
 	}
 
 	#category section h3 {
-		
-min-height:  23px;
-		
-text-align:  right;
+		min-height:  23px;
+		/* text-align:  right; */
+		width: 100%;
 	}
+
 	#category section p {
 		font-size:90%;
-		text-overflow:  ellipsis;
+		/* text-overflow:  ellipsis; */
+		float:  left;
+		/* display:  inline-block; */
+		width: 70%;
+		overflow-y: scroll;
+		height: 100px;
+		background: rgba(250, 250, 255, 0.8);
 	}
 	
-	#category > section > img {
+	#category > section a > img {
 		float:left;
-		max-height: 182px;
-		margin-top: -20px;
-		margin-left:  -20px;
+		/* max-height: 182px; */
+		/* margin-top: -20px; */
+		margin-left: -60px;
+	}
+	.outer > a {
+		width:40%;
+		min-width:  140px;
+	}
+	.outer > a section h4 {
+		min-height: 46px;
+		padding: 6px;
+		margin: 3px;
 	}
 
 }

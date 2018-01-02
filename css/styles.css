@@ -307,10 +307,14 @@ input[type='radio']:checked:after {
 	transition: border-radius 0.2s, border 0.2s;
 	opacity: 0.8;
 }
-.product section form > input {
+.product section form > input, #shoppingcart.expanded > button {
 	float:  right;
 	padding:10px;
 	margin: 10px 4px;
+	max-width: 150px;
+	float: right;
+	background: #ff9d00;
+	border: 1px solid #0f0f0d;
 }
 
 .product section form fieldset label {
@@ -499,39 +503,6 @@ tr.newItem {
 
 	.largeImage > section:after {
 		content:'click here to close';
-	}
-	.largeImage:after {
-		content: '>';
-		position:  absolute;
-		right: 5px;
-		top: 13px;
-		width: 42px;
-		/* height: 83%; */
-		/* background: #eef; */
-		font-size: 86px;
-		color: #b00c12;
-/* 		https://www.w3schools.com/cssref/css3_pr_animation.asp */
-		animation:slideRight 1s 1;
-	}
-	
-	@keyframes slideRight {
-		0% {
-			right:5px;
-			transform:rotate(180deg);
-		}
-		49% {
-			right:135px;
-			transform:rotate(180deg);
-		}
-		50% {
-			right:135px;
-			transform:rotate(0deg);
-		}
-		100% {
-			right:5px
-		}
-
-
 	}
 
 	.product figure:nth-of-type(2) img {

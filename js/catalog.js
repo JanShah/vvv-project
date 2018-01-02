@@ -12,6 +12,7 @@ function swiper(imageList,event) {
 		var movingPoint = event.touches[0]
 		movement = movingPoint.screenX  - startingPoint.screenX
 		event.target.style.position='absolute'
+		event.target.style.top = '6px'
 		if(movement>10) {
 			direction = -1
 			event.target.style.left = movement+'px'
@@ -58,6 +59,7 @@ function swiper(imageList,event) {
 		setTimeout(function(){
 			image.style.transition=''
 			image.style.left = '6px'
+			image.style.top = '6px'
 		},150)
 		window.removeEventListener('touchcancel',touchCancelled)
 		window.removeEventListener('touchmove',movingTouch)

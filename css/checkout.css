@@ -2,6 +2,7 @@
 main section table thead {
 	text-align:right;
 	color:#602d90;
+	font-size: 24px;
 }
 
 main section table thead th:nth-of-type(1), 
@@ -12,14 +13,14 @@ main section table thead th:nth-of-type(2) {
 main section #subtotals {
 		padding: 20px;
 		width: 100%;
-		font-size:  16px;
+		font-size: 16px;
 		background: #fff;
 		text-align:  right;
 }
 
 main section #subtotals td:nth-of-type(1) {
-	width: 42%;
-	text-align:  left;
+	/* width: 42%; */
+	/* text-align:  left; */
 }
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
@@ -126,14 +127,14 @@ main section #subtotals td:nth-of-type(3):before {
 
 
 @media (min-width: 0px) and (max-width: 559px)  {
-	main section #subtotals td:nth-of-type(1) {		
-		max-height: 62px;				
-		overflow-y: auto;				
+	main section #subtotals td:nth-of-type(1) {
+		/* max-height: 62px; */
+		/* overflow-y: auto; */
 		/* display: inline-block;				 */
-		overflow-x: hidden;				
-		max-width:  163px;				
-		float:  left;				
-		width: 100px;
+		/* overflow-x: hidden; */
+		/* max-width:  163px; */
+		/* float:  left; */
+		/* width: 100px; */
 	}
 }
 

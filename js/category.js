@@ -1,7 +1,7 @@
-
 window.onload = function() {
-
-	getStock('products',categories)
+	window.addEventListener('hashchange',viewProducts)
+	// getStock('products',categories)
+	viewProducts(false)
 }
 
 function categories() {
@@ -27,15 +27,17 @@ function Category (props,item){
 		this.description = this.getDescription(props.description)
 		this.short_description = this.getShortDescription(props['short_description'])
 		this.link = this.getLink(props.name)
+		this.inPageLink = this.samePageLink(props.name)
 		this.image = this.getImage(props.image)
-		this.getAll = this.section(itemId)
+		this.getAll = this.getAll(itemId)
 	
 }
 
-Category.prototype.section = function(item) {
+Category.prototype.getAll = function(item) {
 	var section = createDOM('section')
-	section.appendChild(this.title)
+	this.link.appendChild(this.title)
 	section.appendChild(this.image)
+	section.appendChild(this.link)
 	section.appendChild(this.short_description)
 	section.id = item
 	return section
@@ -65,38 +67,57 @@ Category.prototype.getImage = function(image) {
 	img.onload = function() {
 	}
 	var link = createDOM('a')
-	link.href=this.link
+	link.href=this.inPageLink
 	link.appendChild(img)
 	return link
 }
 Category.prototype.getLink = function(props) {
-	var link = 'category.html#'+props		
-	return link
+	var link = 'products.html#'+props		
+	var a = createDOM('a')
+	a.href = link
+	return a
 }
 
-window.addEventListener('hashchange',viewProducts)
+Category.prototype.samePageLink = function(props) {
+	var link = 'category.html#'+props		
+	var a = createDOM('a')
+	a.href = link
+	return a
+}
+
 
 function viewProducts(e) {
-	e.preventDefault()
-	if(window.location.hash)
-	try{
-		getStock('products',listOfProducts)
-		function listOfProducts() {
-			var category = window.location.hash.split('#')[1]
-			var itemIndex = Object.keys(this).map(function(item,index) {
-				if(item===category) {
-					return index
-				}
-			}).join('').trim()
-			var items = getInventory(this[category].inventory,itemIndex)
-			category = new Category(this[category],itemIndex)
-			var categoryDOM = document.getElementById('category')
-			categoryDOM.innerHTML=''
-			categoryDOM.appendChild(category.getAll)
-			categoryDOM.appendChild(items)
-
+	window.scrollTo(0,0)
+	if(e) {
+		e.preventDefault()
+		window.scrollTo(0,0)
+		var sc = document.getElementsByTagName('figure')[0].getBoundingClientRect().bottom
+		if(window.innerWidth<=560) {
+			sc = sc-60
 		}
-	} catch(error) {
+		window.scrollTo(0,sc)
+	}
+	visits = 1
+	if(window.location.hash) {
+			try{
+			getStock('products',listOfProducts)
+			function listOfProducts() {
+				var category = window.location.hash.split('#')[1]
+				var itemIndex = Object.keys(this).map(function(item,index) {
+					if(item===category) {
+						return index
+					}
+				}).join('').trim()
+				var items = getInventory(this[category].inventory,itemIndex)
+				category = new Category(this[category],itemIndex)
+				var categoryDOM = document.getElementById('category')
+				categoryDOM.innerHTML=''
+				categoryDOM.appendChild(category.getAll)
+				categoryDOM.appendChild(items)
+	
+			}
+		} catch(error) {
+		}
 	}
 	else 
 		getStock('products',categories)
@@ -107,7 +128,9 @@ function getInventory(stock,id) {
 	var outerSection = createDOM('section')
 	var backButton = createDOM('button')
 	backButton.innerHTML = 'back'
+	// 	https://developer.mozilla.org/en-US/docs/Web/API/Window/history
 	backButton.addEventListener('click',function(){
+		history.back()
 	})
 	outerSection.classList.add('outer')
 	stock.map(function (item,index){

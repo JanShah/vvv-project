@@ -32,13 +32,18 @@ function populateShoppingBasket() {
 	if(hours>1) {
 		basket = []
 		localStorage.removeItem('basket')
-		console.log(localStorage)
 	}
-	console.log()
-
 	var indicator = createDOM('div')
 	var cartHeader = document.getElementById('shoppingcart');
 	var cart = document.getElementById('cartTotal')
+	console.log(cartHeader.children[2])
+	var button = createDOM('button')
+	button.addEventListener('click',function() {
+		cartHeader.classList.remove('expanded')
+
+	})
+	button.innerHTML = 'continueShopping'
+	cartHeader.insertBefore(button,cartHeader.children[2])
 	var basketLastNode = cartHeader.childNodes[cartHeader.childNodes.length-1]
 	var shoppingCart = document.getElementById('cartcontents');
 	shoppingCart.innerHTML='Basket is empty'
