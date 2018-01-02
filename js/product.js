@@ -57,7 +57,7 @@ Product.prototype.gallery = function() {
 		var imageLoaded = new Image();
 		if(!getCached(image)) {
 			imageCache(image)
-			imageLoaded.src='img/loading.png';
+			imageLoaded.src='img/loading.gif';
 			imageLoaded.setAttribute('data-id',image)
 		} else {
 			imageLoaded.src=image;

@@ -36,25 +36,23 @@ function populateShoppingBasket() {
 	var indicator = createDOM('div')
 	var cartHeader = document.getElementById('shoppingcart');
 	var cart = document.getElementById('cartTotal')
-	console.log(cartHeader.children[2])
-	var button = createDOM('button')
-	button.addEventListener('click',function() {
-		cartHeader.classList.remove('expanded')
-
-	})
-	button.innerHTML = 'continueShopping'
-	cartHeader.insertBefore(button,cartHeader.children[2])
+	var lastButton = cartHeader.children[1]
+	var message = 'continue Shopping'
+	if(lastButton.innerHTML!==message) {
+		var button = createDOM('button')
+		button.addEventListener('click',function() {
+			cartHeader.classList.remove('expanded')
+	
+		})
+		button.innerHTML = message
+		cartHeader.insertBefore(button,lastButton)
+	}
 	var basketLastNode = cartHeader.childNodes[cartHeader.childNodes.length-1]
 	var shoppingCart = document.getElementById('cartcontents');
 	shoppingCart.innerHTML='Basket is empty'
 	cart.innerHTML=''
 	if(basket.length) {
 		shoppingCart.innerHTML=''
-		basket = basket.sort(function(prev,item){
-			//sort to meet requirements of project specification (return a list sorted by price)
-			return parseFloat(prev.price,10)>parseFloat(item.price,10)
-		})
-		localStorage.setItem('basket',JSON.stringify(basket))
 		if(basketLastNode.nodeName!=='DIV'){
 			cartHeader.appendChild(indicator)
 		}

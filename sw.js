@@ -34,7 +34,7 @@ self.addEventListener('install',function(event) {
 		'/img/menuHover.svg',
 		'/img/search.svg',
 		'/img/bgpattern.svg',
-		'/img/loading.png',
+		'/img/loading.gif',
 		'/img/shirt/beowulf-shirt1.jpg',
 		'/img/shirt/beowulf-shirt2.jpg',
 		'/img/shirt/beowulf-shirt3.jpg',

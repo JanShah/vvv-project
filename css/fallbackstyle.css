@@ -24,17 +24,12 @@ max-width: 450px;
 }
 
 noscript {
-  background: #401c65;
-  width: 50%;
-  float: left;
+  background: #fed795;
+  display: block;
   height: 36px;
   padding: 5px 0;
   text-align:  center;
-  color: #fbfbf2;
-  font-size: 16px;
-  z-index: 117;
-  top: 19px;
-  padding-right: 50%;
+  color: #0f0f0d;
 }
 
 @media (max-width: 560px) {

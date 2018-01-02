@@ -307,7 +307,7 @@ input[type='radio']:checked:after {
 	transition: border-radius 0.2s, border 0.2s;
 	opacity: 0.8;
 }
-.product section form > input, #shoppingcart.expanded > button {
+#checkout input[type='submit'], .product section form > input, aside.expanded > button {
 	float:  right;
 	padding:10px;
 	margin: 10px 4px;
@@ -315,6 +315,7 @@ input[type='radio']:checked:after {
 	float: right;
 	background: #ff9d00;
 	border: 1px solid #0f0f0d;
+	font-size:  90%;
 }
 
 .product section form fieldset label {

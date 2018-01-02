@@ -19,6 +19,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#602d90">
 	<noscript>
 		<link rel="stylesheet" href="css/fallbackstyle.css">
+		<meta http-equiv="refresh" content="0; url=/product.html" />
 	</noscript>
 </head>
 
@@ -29,7 +30,7 @@
 	</nav>
 	<header>
 		<a href="index.html" tabindex="0">
-			<img id="logo" alt="Valiants  Vestures Store" src="logo-sm.png">
+			<img id="logo" alt="Valiants  Vestures Store" src="logo.svg">
 		</a>
 		<h1>Valiants Vintage Vestures</h1>
 		<div></div>
@@ -38,18 +39,12 @@
 				<legend>Product Search</legend>
 				<!-- <input type="text" id="topsearch" name="search"/> -->
 				<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
-				<label id="topsearch">Search
-					<input list="itemsList" id="topsearchBox" name="search" placeholder="Search Items">
-				</label>
-				<datalist>
-					<select id="itemsList">
-						
-					</select>
-
-				</datalist>
+				<label for="topsearchBox">Search</label>
+				<input list="itemsList" id="topsearchBox" name="search" placeholder="Search Items" autocomplete="off">
 				<button type="submit">Search</button>
 			</fieldset>
 		</form>
+		<div id="aoptions"></div>
 		<nav id="categories" tabindex="0">
 			<a href="#shirts">Shirts</a>
 			<a href="#breeches">Breeches</a>
@@ -67,6 +62,7 @@
 		</nav>
 		<aside id="shoppingcart" tabindex="0">
 			<h2>Shopping Cart</h2>
+			<a href="checkout.html" tabindex="0">Checkout</a>
 			<table>
 				<thead>
 					<tr>
@@ -78,7 +74,6 @@
 				<tbody id="cartcontents"></tbody>
 				<tfoot id="cartTotal"></tfoot>
 			</table>
-						<a href="checkout.html">Checkout</a>
 		</aside>
 		<!-- https://coderwall.com/p/p0nvjw/creating-a-semantic-breadcrumb-using-html5-microdata -->
 		<ul class="breadcrumb" itemscope="" itemtype="http://schema.org/breadcrumb">
@@ -119,7 +114,7 @@
 		</article>
 	</main>
 	<footer>
-		<img src="logo-sm.png" alt="VVV">
+		<img src="logo.svg" alt="VVV">
 		<nav>
 			<a href="index.html">Home</a> |
 			<a href="contact.html">Contact Us</a> |

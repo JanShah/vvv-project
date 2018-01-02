@@ -198,7 +198,18 @@ function start(){
 	var showItems = document.getElementById('products')
 	var a = document.getElementsByTagName('article')[0]
 	var article = a.cloneNode(true)
-	// showItems.innerHTML='';	
+	// showItems.innerHTML='';
+	var basket = JSON.parse(localStorage.getItem('basket'))
+	if(basket) {
+		console.log('basket',basket)
+		basket = basket.sort(function(prev,item){
+			//sort to meet requirements of project specification (return a list sorted by price)
+			console.log(parseFloat(prev.price,10),parseFloat(item.price,10))
+			console.log(parseFloat(prev.price,10)<parseFloat(item.price,10))
+			return parseFloat(prev.price,10)<parseFloat(item.price,10)
+		})
+		localStorage.setItem('basket',JSON.stringify(basket))
+	}
 	function receiveStock() {	
 		// this to that.. 
 		var that = this

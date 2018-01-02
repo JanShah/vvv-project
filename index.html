@@ -64,17 +64,12 @@
 		<form tabindex="0">
 			<fieldset>
 				<legend>Product Search</legend>
-				<!-- <input type="text" id="topsearch" name="search"/> -->
-				<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
-				<label id="topsearch">Search
-					<input list="itemsList" id="topsearchBox" name="search" placeholder="Search Items" />
-				</label>
-				<datalist id="itemsList">
-
-				</datalist>
+				<label for="topsearchBox">Search</label>
+				<input list="itemsList" id="topsearchBox" name="search" placeholder="Search Items" autocomplete="off">
 				<button type="submit">Search</button>
 			</fieldset>
 		</form>
+		<div id="aoptions"></div>
 		<nav id="categories" tabindex="0">
 			<a href="products.html#shirts">Shirts</a>
 			<a href="products.html#breeches">Breeches</a>
@@ -92,6 +87,7 @@
 		</nav>
 		<aside id="shoppingcart" tabindex="0">
 			<h2>Shopping Cart</h2>
+			<a href="checkout.html" tabindex="0">Checkout</a>
 			<table>
 				<thead>
 					<tr>
@@ -100,20 +96,9 @@
 						<th>Price</th>
 					</tr>
 				</thead>
-				<tbody id="cartcontents">
-					<tr>
-						<td>
-							<img src="img/cart.svg" alt="Shopping cart">
-						</td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-				<tfoot id="cartTotal">
-					
-				</tfoot>
+				<tbody id="cartcontents"></tbody>
+				<tfoot id="cartTotal"></tfoot>
 			</table>
-						<a href="checkout.html">Checkout</a>
 		</aside>
 		<!-- https://coderwall.com/p/p0nvjw/creating-a-semantic-breadcrumb-using-html5-microdata -->
 	</header>
@@ -183,7 +168,7 @@
 		</article>
 	</main>
 	<footer>
-		<img src="logo-sm.png" alt="VVV">
+		<img src="logo.svg" alt="VVV">
 		<nav>
 			<a href="index.html">Home</a> |
 			<a href="contact.html">Contact Us</a> |

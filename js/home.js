@@ -204,7 +204,7 @@
 //lazy load images
 //service worker and full site caching (return pages when offline)
 //install on android homescreen
-//search with autocomplete (not fully functioning)
+//product search with autocomplete
 //view all categories
 //view products per category
 //view all products 
@@ -219,6 +219,16 @@
 //no libraries or frameworks. 
 //compatible with all major browsers
 
+// secure
+// https://observatory.mozilla.org/analyze.html?host=vvv.today
+// https://csp-evaluator.withgoogle.com/?csp=https://vvv.today
+// https://hstspreload.org/?domain=vvv.today
+// https://www.htbridge.com/ssl/?id=dhXDQ6E2
+// https://www.ssllabs.com/ssltest/analyze?d=vvv.today
+
+// PCI-DSS Compliant
+
+// Fast,progressive and accessible - near 100 lighthouse scores across the board
 
 // https://developers.google.com/web/fundamentals/primers/service-workers/
 // https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker
@@ -349,7 +359,7 @@ function loadImages() {
 
 window.addEventListener('load',function(){
 	var header = document.getElementsByTagName('header')[0]
-	var searchForm = document.getElementById('topsearch')
+	var searchForm = document.getElementById('topsearchBox')
 	var searchData = null
 	var productsUrl = window.location.pathname==='/products.html'	
 	//use keyup event to get search data
@@ -378,7 +388,7 @@ window.addEventListener('load',function(){
 		//which is good I suppose. 
 		//pressing the enter button bypasses the event listener. not good.  
 		event.preventDefault()
-		var list = document.getElementById('itemsList')
+		var list = document.getElementById('aoptions')
 		var searchBox = document.getElementById('topsearchBox')
 		function callback() {
 			// this is the data that will be used to compare against search input
@@ -391,20 +401,25 @@ window.addEventListener('load',function(){
 		}
 	
 		function changeFormTarget(event) {
+			console.log('event')
+
 			var formButton = event.target.parentNode.parentNode.childNodes[11]
 			var target = event.target.value			
 			Object.keys(searchData).forEach(function(category,index) {
+				console.log(target,category)
 				searchData[category].inventory.map(function(item,id) {
 					if(item.name===target) {
 						var finalHash = index.toString()+id.toString()
 						// https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 						window.open('/products.html#'+finalHash,'_self')
+						searchForm.removeEventListener('keyup',getSearches,false)
 						event.target.value=''
+						return;
 					}
 				})
 			})
 		}
-		searchBox.addEventListener('change',changeFormTarget,false)
+		// searchBox.addEventListener('blur',changeFormTarget,false)
 		if(event.target.value.length>=0&&!searchData) {
 			//before second character is typed in, load the products. 
 			getStock('products',callback)
@@ -414,15 +429,24 @@ window.addEventListener('load',function(){
 			list.innerHTML = ''
 			Object.keys(searchData).forEach(function(item,key){
 				searchData[item].inventory.forEach(function(stock){
+					var p = createDOM('a')
 					var name = stock.name.toLowerCase()
+					var image = new Image()
+					image.src = stock.images[0]
+					image.alt = name
 					var search = event.target.value.toLowerCase()
 					//if there is a partial match in any word of the product name					
-					if( name.indexOf(search)>=0 ) {						
+					if( name.indexOf(search)>=0 ) {
+						console.log(name.indexOf(search),name,search)
 						//create an autocomplete option
-						var option = createDOM('option')
-						option.value = stock.name
+						// var option = createDOM('option')
+						// option.appendChild(image)
+						// option.value = stock.name
 						//append it to the DOM
-						list.appendChild(option)
+						console.log(name,image)
+						
+						p.appendChild(image)
+						list.appendChild(p)
 					}
 				})
 			})

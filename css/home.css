@@ -1,10 +1,10 @@
 body {
-	font-family: Arial;
+	font-family: sans-serif;
 	margin: 0;
 	background: url('../img/bgpattern.svg');
 }
 
-h1, h2, h3, h4, header nav, header>a, article h4 span{
+h1, h3, article h4 span{
 	font-family: 'Kaushan Script', Arial;
 }
 
@@ -50,7 +50,7 @@ header > a {
 	text-align:  center;
 	margin: 0 auto;
 	margin-top: -30px;
-	width:  50%;
+	/* width:  50%; */
 }
 a:link,a:visited {
 	text-decoration: none;
@@ -90,7 +90,7 @@ header > nav > a:hover {
 
 header > nav > section {
   position: absolute;
-  top: 0;
+  top: 5px;
   right: 10px;
 }
 
@@ -107,7 +107,7 @@ header {
 	width: 100%;
 	display: inline-block;
 	min-height: 40px;
-	border-bottom: 1px solid #666;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.22);
 	box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.22);
 }
 
@@ -127,7 +127,7 @@ header form fieldset legend {
 
 header form input {
 	padding: 6px;
-	width: calc(100% - 146px);
+	width: calc(100% - 96px);
 	margin: 0;
 	background: #fafaff;
 	border: 1px solid #7d7d7d;
@@ -161,20 +161,36 @@ header form fieldset {
 	border:none;
 	padding: 0;
 	/* float: left; */
-	width: 90%;
-	margin: 10px auto;
+	/* width: 100%; */
+	margin: 20px 10px;
 	color: #0f0f0d;
 }
 
 header form label {
-	position:  relative;
+	position: absolute;
 	left: -1000%;
+}
+
+div#aoptions {
+  /* position: absolute; */
+  /* width: 200px; */
+  /* height:  100px; */
+  /* background:  blue; */
+  z-index: 122;
+  /* top: 84px; */
+  margin: -10px calc(5% + 134px) 0px 5%;
+  display:  block;
+  color:  white;
+}
+
+div#aoptions a {
+  display: inline-block;
 }
 
 nav#skipnavigation {
 	background: #ffffff;
-	z-index: 1000;
-	height:  30px;
+	height: 35px;
+	padding: 5px;
 }
 
 nav#categories a:after{
@@ -193,7 +209,7 @@ nav#categories a:after{
 	text-align:  center;
 	display:  block;
 	background: #fee1ae;
-	padding: 3px 0;
+	/* padding: 3px 0; */
 	margin: 10px 0;
 	/* margin-left: 0; */
 	border-top: 1px solid #7d7d7d;
@@ -242,7 +258,7 @@ header a > img {
 	border:0;
 	/* z-index: 0; */
 	/* transition: max-width 0.2s; */
-	max-width: 40px;
+	/* max-width: 70px; */
 	/* display: block; */
 	/* float:  left; */
 	margin: 5px;
@@ -253,20 +269,20 @@ header h1 {
 	margin: 0 auto;
 	color: rgba(66, 31, 99, 0.71);
 	/* display: inline-block; */
-	margin-top: -20px;
+	margin-top: -24px;
 	text-align:  center;
 	width: 50%;
 }
 
 header > nav > a {
 	color: #0f0f0d;
-	width: 13%;
+	width: 14%;
 	display: inline-block;
 	/* text-align: center; */
 	/* border-left: 1px solid; */
 	/* box-sizing:  border-box; */
 	/* padding: 4px; */
-	padding: 3px 0;
+	padding: 8px 0;
 	margin: 0 auto;
 	/* float:  left; */
 	transition:  all 0.2s;
@@ -359,6 +375,7 @@ header aside:before {
 	margin-top: 0;
 	z-index:  100;
 	margin-left: 0;
+	padding-bottom: 10px;
 }
 
 aside:hover:before {
@@ -374,17 +391,23 @@ aside.expanded:before {
 	cursor: pointer;
 }
 
-aside.expanded a:link,aside.expanded a:visited {
-	position: fixed;
+aside.expanded a:link, aside.expanded a:visited,aside.expanded > button {
+	position: absolute;
 	/* bottom: 34px; */
 	/* right: 20px; */
-	font-size:  1.3em;
 	color: #000;
 	background:  none;
-	top: 45px;
+	top: 10px;
 	padding:  10px;
 	background:  white;
 	right: 71px;
+	font-size:  1em;
+}
+
+aside.expanded > button {
+	right: 161px;
+	padding:0;
+	top: 0;
 }
 
 aside.expanded a:link:after  {
@@ -409,7 +432,7 @@ aside h2,aside h3 {
 	font-size: 1em;
 	margin: 5px 5px 0 10px;
 	border-bottom: 1px solid #6a4701;
-	/* padding-bottom: 14px; */
+	padding-bottom: 14px;
 	float:  left;
 }
 
@@ -518,11 +541,13 @@ main > form input, main > form textarea {
 	margin: 10px;
 }
 
-main section form input[type='submit'], main > form input[type='submit'] {
-	/* max-width: 150px; */
-	/* float:right; */
-	/* background: #ff9d00; */
-	/* border: 1px solid #0f0f0d; */
+.product section form > input, main > form input[type='submit'] {
+	max-width: 150px;
+	float:right;
+	background: #ff9d00;
+	border: 1px solid #0f0f0d;
+	padding: 10px;
+	margin: 14px 10px;
 }
 
 main.contact section form label,
@@ -630,7 +655,8 @@ body > section > section h2 {
 		position:absolute;
 		top:0px;
 		right:0;
-		font-size:0;		
+		font-size:0;
+		/* display:  none; */
 	}
 /* 	aside > a:after {
 		content: url('../img/checkout.svg');
@@ -899,7 +925,7 @@ body > section > section h2 {
 @media (min-width: 560px)and (max-width: 739px) {
 
 	header > nav > a {
-		width: 16%;
+		width: calc(20% - 4px);
 	}
 	nav#categories {
 		font-size: 16px;
@@ -916,7 +942,7 @@ body > section > section h2 {
 	}
 	header form label {
 	  	/* font-size: 0; */
-	  	left: 0!important;
+	  	/* left: 0!important; */
 	}
 
 
@@ -930,8 +956,12 @@ body > section > section h2 {
 	}
 	header aside {
 		width: 190px;
-		top: 30px;
-	}	
+		top: 40px;
+	}
+	header form {
+		width:50%;
+		margin:  2% auto;
+	}
 
 }
 
@@ -950,6 +980,10 @@ body > section > section h2 {
 	header form fieldset {
 		margin: 5px auto;
 		/* color: #fff; */
+		position:  absolute;
+		top:  30px;
+		width:  30%;
+		left: 20px;
 	}
 
 	header aside {
