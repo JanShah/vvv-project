@@ -7,7 +7,6 @@ function swiper(imageList,event) {
 	var movement,direction
 
 
-
 	function movingTouch(event) {
 		var movingPoint = event.touches[0]
 		movement = movingPoint.screenX  - startingPoint.screenX
@@ -133,9 +132,6 @@ function largeImage(e){
 
 }
 
-
-
-
 window.onload =function() {
 
 	if(!isIe()) {
@@ -199,38 +195,24 @@ function start(){
 	var a = document.getElementsByTagName('article')[0]
 	var article = a.cloneNode(true)
 	// showItems.innerHTML='';
-	var basket = JSON.parse(localStorage.getItem('basket'))
-	if(basket) {
-		console.log('basket',basket)
-		basket = basket.sort(function(prev,item){
-			//sort to meet requirements of project specification (return a list sorted by price)
-			console.log(parseFloat(prev.price,10),parseFloat(item.price,10))
-			console.log(parseFloat(prev.price,10)<parseFloat(item.price,10))
-			return parseFloat(prev.price,10)<parseFloat(item.price,10)
-		})
-		localStorage.setItem('basket',JSON.stringify(basket))
-	}
 	function receiveStock() {	
 		// this to that.. 
 		var that = this
 		//or arrow function to save context. 
 		window.addEventListener('hashchange',function(){
 			changeLogo()
-
 			var mainNav = document.getElementById('categories')
 			var NavExpanded = mainNav.hasAttribute('class','expanded')
 			if(NavExpanded) {
 				mainNav.removeAttribute('class','expanded')
-			}
-					
+			}					
 			getContent(that,window.location.hash);			
 			showItems.appendChild(article)
 		})
 		//get content once items and options are loaded
 		getContent(this,window.location.hash);	
 		showItems.appendChild(article)
-	}	
-	
+	}		
 }
 
 function startIe() {
@@ -238,7 +220,6 @@ function startIe() {
 	//means this receiveStock function isn't the same as the one declared above
 	//even though they share the same name.
 	getStock('products',receiveStock)
-
 	function receiveStock() {	
 		var that = this
 		window.addEventListener('hashchange',function(){		
@@ -258,7 +239,6 @@ function getContent(items,hash) {
 		var pageTitle = createDOM('h2')
 		pageTitle.innerHTML = 'Products'
 		showItems.appendChild(pageTitle);					
-
 		var category = hash.split('#')[1];
 		// not supported by safari :(
 		// crumb.lastElementChild.innerText=category
@@ -329,7 +309,6 @@ function getContent(items,hash) {
 	if(basket) {
 		var shoppingCart = document.getElementById('cartcontents');
 		shoppingCart.innerHTML=''
-		console.log(this)
 		populateShoppingBasket()
 	}
 	// getTiming({reason:'get Content end: '})
@@ -458,6 +437,9 @@ function openAlert(message,order) {
 			var basket = document.getElementById('shoppingcart')
 			basket.classList.add('expanded')
 			basket.focus()
+			var currentHeight = window.scrollY
+			window.addEventListener('scroll',removeExpand.bind(this,currentHeight))
+	
 		}	
 	},timeDelay)
 	return

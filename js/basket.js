@@ -3,18 +3,19 @@ function createDOM(element){
 	return document.createElement(element);
 }
 
-
 changeLogo()
 // https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet
 function changeLogo() {
 	var colors = [
-		'd35112','9a021a','e0e5e0','274160','2d1747'
+		'b4c0b4','274160','2d1747','d35112','9a021a'
 	]
 	var sheet = document.styleSheets[0]
-	console.log(sheet)
 	var logoParts = ['st1','st2','st0','st3']
 	var styles = logoParts.forEach(function(part) {
 		var id = Math.floor(Math.random()*colors.length)
+		if(part==='st3'&&colors[id]==='b4c0b4') {
+			id=1;
+		}
 		var rule = '.'+part+' {fill:#'+colors.splice(id,1)+'}'
 		if(!isIe()) {
 			sheet.insertRule(rule,sheet.rules.length)
@@ -25,8 +26,6 @@ function changeLogo() {
 
 	})
 }
-
-
 
 //Get window path 
 // optional id = page name or true
@@ -55,7 +54,6 @@ function populateShoppingBasket() {
 	var oldDate = new Date(localStorage.getItem('cacheLifeTime'))
 	var hours = (date - oldDate)/1000/60/60
 	if(hours>1) {
-		console.log(date,oldDate,hours)
 		localStorage.setItem('cacheLifeTime',date.toString())
 		basket = []
 		localStorage.removeItem('basket')
@@ -69,7 +67,16 @@ function populateShoppingBasket() {
 		var button = createDOM('button')
 		button.addEventListener('click',function() {
 			cartHeader.classList.remove('expanded')
-	
+			if(window) {
+				var url = window.location.pathname
+				var host = window.location.host
+				var pUrl = '/products.html'
+				if(url===pUrl) {
+					window.location.reload();
+				} else {
+					window.location.assign(pUrl)
+				}
+			}
 		})
 		button.innerHTML = message
 		cartHeader.insertBefore(button,lastButton)
@@ -141,8 +148,6 @@ function getaddMinusButtons(item) {
 	}	
 	return [buttonTD,lineTotal]
 }
-
-
 // gets the basket subtotal
 // optional checkout parameter, if true return the DOM
 //else append DOM to basket. 
@@ -156,7 +161,6 @@ function basketSubTotal(checkout) {
 			quantityInBasket+=parseInt(item.qty,10)
 		})
 		var indicator = document.getElementsByTagName('div')[2]
-		console.log(document.getElementsByTagName('div'))
 		var p = document.createElement('p')
 		p.innerHTML = quantityInBasket
 		indicator.innerHTML = ''
@@ -234,7 +238,6 @@ function changeOrder(event) {
 	var pm = event.target.innerHTML
 	var items = JSON.parse(localStorage.getItem('basket'))
 	var item = items[basketItemID]
-
 	if(pm==='-') {
 		item.qty-=1
 	} else if(pm==='x'){
@@ -242,12 +245,9 @@ function changeOrder(event) {
 	} else if(pm==='+'){
 		item.qty+=1
 	}
-
 	localStorage.setItem('basket',JSON.stringify(items))
-
 	if(getPath('checkout')) {
 		loadCheckout()
 	}
-
 	populateShoppingBasket()
 }

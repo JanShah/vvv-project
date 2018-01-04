@@ -1,5 +1,13 @@
 window.onload=function() {
-
+	var basket = JSON.parse(localStorage.getItem('basket') )
+	if(basket) {
+		basket = basket.sort(function(prev,item){
+			//sort to meet requirements of project specification (return a list sorted by price)
+			console.log('sorting')
+			return parseFloat(prev.price,10)<parseFloat(item.price,10)
+		})
+		localStorage.setItem('basket',JSON.stringify(basket))
+	}	
 	loadCheckout()
 }
 
@@ -12,6 +20,7 @@ function loadCheckout() {
 	var checkoutForm = document.getElementById('checkout')
 	checkout.innerHTML = ''
 	if(basket && basket.length) {
+
 		basket.map(function(item,index){
 			var addminus = getaddMinusButtons(item,index)
 			var contents = showBasket(item)
@@ -74,6 +83,5 @@ function buildTable(data,row) {
 		newRow.childNodes[1].innerHTML = item.toFixed(2)
 		temp.appendChild(newRow)
 	})
-	console.log(temp)
 	return temp
 }

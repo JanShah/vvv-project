@@ -230,6 +230,107 @@
 
 // Fast,progressive and accessible - near 100 lighthouse scores across the board
 
+
+
+
+//entry point
+window.addEventListener('load',function(){
+	var header = document.getElementsByTagName('header')[0]
+	var searchForm = document.getElementById('topsearchBox')
+	var searchData = null
+	var productsUrl = window.location.pathname==='/products.html'	
+	//use keyup event to get search data
+	searchForm.addEventListener('keyup',getSearches,false)
+	//header events to expand menu items
+	header.addEventListener('click',expandItem,false)
+	header.addEventListener('keyup',expandItem,false)
+	//add the service works
+	addServiceWorker()
+	//run the lazy loader
+	loadImages()
+	if(!isIe()&&productsUrl) {
+		// https://stackoverflow.com/questions/2446740/post-loading-check-if-an-image-is-in-the-browser-cache
+		//rough implementation of a lazy image loader.  any product image above or below the 'fold' or outside the visible
+		//part of a page will not render until it comes into view.
+		// feature is not implemented for ie 11- but works in edge. 		
+		window.addEventListener('scroll',scrollStart,false);
+		window.addEventListener('hashchange',scrollStart);
+	}
+	
+	function getSearches(event){
+		//got this partially working, not happy with which event is triggered when I update the cell. 
+		//the intention is, you click on the match from the dropdown list and it takes you to that items url. 
+		//as it stands, it requires the text box lose focus
+		//there doesn't even need to be a submit button but hey ho, there you go. 
+		//it works with the submit button as a side effect of the change event listener below
+		//which is good I suppose. 
+		//pressing the enter button bypasses the event listener. not good.  
+		event.preventDefault()
+		var list = document.getElementById('aoptions')
+		var searchBox = document.getElementById('topsearchBox')
+		function callback() {
+			// this is the data that will be used to compare against search input
+			//parsing stringified data creates a deep copy	
+			searchData = JSON.parse(JSON.stringify(this))
+			if(isIe()) {
+				//for some unknown reason, I have to parse this twice for ie.. 
+				searchData = JSON.parse(searchData)				
+			}
+		}
+	
+		function changeFormTarget(event) {
+			console.log('event')
+
+			var formButton = event.target.parentNode.parentNode.childNodes[11]
+			var target = event.target.value			
+			Object.keys(searchData).forEach(function(category,index) {
+				console.log(target,category)
+				searchData[category].inventory.map(function(item,id) {
+					if(item.name===target) {
+						var finalHash = index.toString()+id.toString()
+						// https://developer.mozilla.org/en-US/docs/Web/API/Window/open
+						window.open('/products.html#'+finalHash,'_self')
+						searchForm.removeEventListener('keyup',getSearches,false)
+						event.target.value=''
+						return;
+					}
+				})
+			})
+		}
+		// searchBox.addEventListener('blur',changeFormTarget,false)
+		if(event.target.value.length>=0&&!searchData) {
+			//before second character is typed in, load the products. 
+			getStock('products',callback)
+		}
+		if(event.target.value.length>0&&searchData) {
+			list.innerHTML = ''
+			//if there is something loaded in searchdata, browse through.
+			Object.keys(searchData).forEach(function(item,key){
+				searchData[item].inventory.forEach(function(stock){
+					var p = createDOM('a')
+					var name = stock.name.toLowerCase()
+					var image = new Image()
+					image.src = stock.images[0]
+					image.alt = name
+					var search = event.target.value.toLowerCase()
+					//if there is a partial match in any word of the product name					
+					if( name.indexOf(search)>=0 ) {
+						console.log(name.indexOf(search),name,search)
+						//create an autocomplete option
+						// var option = createDOM('option')
+						// option.appendChild(image)
+						// option.value = stock.name
+						//append it to the DOM						
+						p.appendChild(image)
+						list.appendChild(p)
+					}
+				})
+			})
+		}
+	}
+})
+
+
 // https://developers.google.com/web/fundamentals/primers/service-workers/
 // https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker
 function addServiceWorker() {
@@ -357,102 +458,6 @@ function loadImages() {
 	}
 }
 
-window.addEventListener('load',function(){
-	var header = document.getElementsByTagName('header')[0]
-	var searchForm = document.getElementById('topsearchBox')
-	var searchData = null
-	var productsUrl = window.location.pathname==='/products.html'	
-	//use keyup event to get search data
-	searchForm.addEventListener('keyup',getSearches,false)
-	// form.addEventListener('click',expandForm,false)
-	// restrict listener to header elements
-	header.addEventListener('click',expandItem,false)
-	header.addEventListener('keyup',expandItem,false)
-	addServiceWorker()
-	loadImages()
-	if(!isIe()&&productsUrl) {
-		// https://stackoverflow.com/questions/2446740/post-loading-check-if-an-image-is-in-the-browser-cache
-		//rough implementation of a lazy image loader.  any product image above or below the 'fold' or outside the visible
-		//part of a page will not render until it comes into view.
-		// feature is not implemented for ie 11- but works in edge. 		
-		window.addEventListener('scroll',scrollStart,false);
-		window.addEventListener('hashchange',scrollStart);
-	}
-	
-	function getSearches(event){
-		//got this partially working, not happy with which event is triggered when I update the cell. 
-		//the intention is, you click on the match from the dropdown list and it takes you to that items url. 
-		//as it stands, it requires the text box lose focus
-		//there doesn't even need to be a submit button but hey ho, there you go. 
-		//it works with the submit button as a side effect of the change event listener below
-		//which is good I suppose. 
-		//pressing the enter button bypasses the event listener. not good.  
-		event.preventDefault()
-		var list = document.getElementById('aoptions')
-		var searchBox = document.getElementById('topsearchBox')
-		function callback() {
-			// this is the data that will be used to compare against search input
-			//parsing stringified data creates a deep copy	
-			searchData = JSON.parse(JSON.stringify(this))
-			if(isIe()) {
-				//for some unknown reason, I have to parse this twice for ie.. 
-				searchData = JSON.parse(searchData)				
-			}
-		}
-	
-		function changeFormTarget(event) {
-			console.log('event')
-
-			var formButton = event.target.parentNode.parentNode.childNodes[11]
-			var target = event.target.value			
-			Object.keys(searchData).forEach(function(category,index) {
-				console.log(target,category)
-				searchData[category].inventory.map(function(item,id) {
-					if(item.name===target) {
-						var finalHash = index.toString()+id.toString()
-						// https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-						window.open('/products.html#'+finalHash,'_self')
-						searchForm.removeEventListener('keyup',getSearches,false)
-						event.target.value=''
-						return;
-					}
-				})
-			})
-		}
-		// searchBox.addEventListener('blur',changeFormTarget,false)
-		if(event.target.value.length>=0&&!searchData) {
-			//before second character is typed in, load the products. 
-			getStock('products',callback)
-		}
-		if(event.target.value.length>0&&searchData) {
-			//if there is something loaded in searchdata, browse through.
-			list.innerHTML = ''
-			Object.keys(searchData).forEach(function(item,key){
-				searchData[item].inventory.forEach(function(stock){
-					var p = createDOM('a')
-					var name = stock.name.toLowerCase()
-					var image = new Image()
-					image.src = stock.images[0]
-					image.alt = name
-					var search = event.target.value.toLowerCase()
-					//if there is a partial match in any word of the product name					
-					if( name.indexOf(search)>=0 ) {
-						console.log(name.indexOf(search),name,search)
-						//create an autocomplete option
-						// var option = createDOM('option')
-						// option.appendChild(image)
-						// option.value = stock.name
-						//append it to the DOM
-						console.log(name,image)
-						
-						p.appendChild(image)
-						list.appendChild(p)
-					}
-				})
-			})
-		}
-	}
-})
 
 
 
@@ -480,22 +485,24 @@ function expandItem(event) {
 	} else if(mousedEvent||keyedEvent){
 		event.target.classList.add('expanded')
 		var currentHeight = window.scrollY
-		window.addEventListener('scroll',removeExpand)
-		function removeExpand(event) {
-			var removeRule = (window.scrollY>currentHeight+200)
-			||(window.scrollY<currentHeight-200)
-			if(removeRule) {
-				window.removeEventListener('scroll',removeExpand)
-				var expandedItems = document.getElementsByClassName('expanded')
-				for(var item = 0; item< expandedItems.length; item++) {
-					expandedItems[item].classList.remove('expanded')
-				}
-			}
-		}
+		window.addEventListener('scroll',removeExpand.bind(this,currentHeight))
+		// console.log(this)
 		//tried adding this but I think it's a negative user experience. 
 		// if(node==='FORM') {
 		// 	event.target.childNodes[1].childNodes[2].focus()
 		// }
+	}
+}
+
+function removeExpand(height,event) {
+	var removeRule = (window.scrollY>height+150)
+	||(window.scrollY<height-150)
+	if(removeRule) {
+		window.removeEventListener('scroll',removeExpand)
+		var expandedItems = document.getElementsByClassName('expanded')
+		for(var item = 0; item< expandedItems.length; item++) {
+			expandedItems[item].classList.remove('expanded')
+		}
 	}
 }
 
@@ -545,4 +552,19 @@ function getStock(things,callback) {
 			//apply the response to 'this' of callback function. 
 			callback.apply(xhr.response);			
 	}
+}
+
+
+
+function stock(item) {
+	var itemStore
+	getStock('products',storeProducts)
+	function storeProducts() {
+		itemStore =  JSON.parse(JSON.stringify(this))
+	}
+	console.log('this is the item store', itemStore)
+	return function(id) {
+		console.log('this is the item store', itemStore)
+	}
+	
 }
