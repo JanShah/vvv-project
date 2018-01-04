@@ -57,6 +57,7 @@ Product.prototype.gallery = function() {
 		var imageLoaded = new Image();
 		if(!getCached(image)) {
 			imageCache(image)
+			// https://www.youtube.com/watch?v=3ONDKqoh6to
 			imageLoaded.src='img/loading.gif';
 			imageLoaded.setAttribute('data-id',image)
 		} else {

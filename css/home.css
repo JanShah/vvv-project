@@ -4,14 +4,29 @@ body {
 	background: url('../img/bgpattern.svg');
 }
 
-h1, h3, article h4 span{
-	font-family: 'Kaushan Script', Arial;
-}
-
 cite {
 	font-weight: bold;
 }
 
+header svg {
+	width: 175px;
+	height: 140px;
+}
+
+/* .st0 {
+  fill: rgb(45, 23, 71);
+}
+
+.st1 {
+  fill: rgb(39, 65, 96);
+}
+
+.st2 {
+  fill: rgb(211, 81, 18);
+}
+.st3 {
+  fill: rgb(154, 2, 26);
+} */
 body > section {
   /* display:  block; */
   float:  left;
@@ -54,7 +69,7 @@ header > a {
 }
 a:link,a:visited {
 	text-decoration: none;
-	color: #0f0f0d;
+	color: #274060;
 }
 
 .contact a:link, #shoppingcart a:link,#shoppingcart a:visited {
@@ -62,7 +77,7 @@ a:link,a:visited {
 }
 
 nav a:link, nav a:visited, header a:link, header a:visited, #shoppingcart a:hover {
-	/* color: #0f0f0d; */
+	color: #2e1846;
 }
 
 nav a:last-child:after {
@@ -74,7 +89,6 @@ nav a:hover:after {
 	color: #fff;
 }
 a:hover {
-	color: #421f63;
 }
 
 nav > aside {
@@ -84,8 +98,8 @@ nav > aside {
 
 
 header > nav > a:hover {
-  background: #7d7d7d;
-  color: #eef;
+  background: #274060;
+  color: #e0e5e0;
 }
 
 header > nav > section {
@@ -106,7 +120,7 @@ header {
 	z-index: 100;
 	width: 100%;
 	display: inline-block;
-	min-height: 40px;
+	min-height: 50px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.22);
 	box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.22);
 }
@@ -114,9 +128,9 @@ header {
 
 header form {
 	width: calc(100%);
-	display: block;
+	display: inline-block;
 	/* margin-right: 100px; */
-	/* margin-top: -18px; */
+	margin-top: 40px;
 	/* height:  35px; */
 }
 
@@ -157,6 +171,9 @@ header form button {
 header form button:hover {
 	background:#ffeea9;
 }
+
+
+
 header form fieldset {
 	border:none;
 	padding: 0;
@@ -171,20 +188,24 @@ header form label {
 	left: -1000%;
 }
 
-div#aoptions {
+#aoptions {
   /* position: absolute; */
   /* width: 200px; */
   /* height:  100px; */
-  /* background:  blue; */
+  background: #d35013;
   z-index: 122;
   /* top: 84px; */
-  margin: -10px calc(5% + 134px) 0px 5%;
+  /* margin: -10px calc(5% + 134px) 0px 5%; */
   display:  block;
   color:  white;
 }
 
-div#aoptions a {
+#aoptions a {
   display: inline-block;
+}
+
+#aoptions a img {
+	width:50px;
 }
 
 nav#skipnavigation {
@@ -204,11 +225,11 @@ nav#categories a:after{
 	color: #fff;
 	z-index: 0;
 	/* width: 100%; */
-	background: #fed795;
+	/* background: #fed795; */
 	/* margin: 0 auto; */
 	text-align:  center;
 	display:  block;
-	background: #fee1ae;
+	background: #ffffff;
 	/* padding: 3px 0; */
 	margin: 10px 0;
 	/* margin-left: 0; */
@@ -267,11 +288,12 @@ header a > img {
 header h1 {
 	font-size: 1.5em;
 	margin: 0 auto;
-	color: rgba(66, 31, 99, 0.71);
+	color: #274060;
 	/* display: inline-block; */
 	margin-top: -24px;
 	text-align:  center;
 	width: 50%;
+	/* backdrop-filter: blur(1px) brightness(108%); */
 }
 
 header > nav > a {
@@ -353,13 +375,13 @@ nav#skipnavigation {
 
 header aside {
 	z-index: 100;
-	height: 30px;
+	height: 40px;
 	overflow: hidden;
 	position: absolute;
 	right: 0;
 	top: 0;
 	padding: 5px;
-	background: #fea;
+	/* background: #274060; */
 	margin-right: 0;
 	width: 160px;
 	/* float: right; */
@@ -370,7 +392,7 @@ header aside:before {
 	content: url('../img/cart.svg');
 	float: left;
 	cursor:  pointer;
-	height:  30px;
+	height: 40px;
 	transition:  background 0.2s;
 	margin-top: 0;
 	z-index:  100;
@@ -378,8 +400,22 @@ header aside:before {
 	padding-bottom: 10px;
 }
 
-aside:hover:before {
-	background: #fed795;
+aside:hover, aside:hover+h2, aside:hover~table {
+	background: #e0e5e0;
+	color: #274060;
+}
+
+aside.expanded:hover {
+	background: #2e1846;
+	color: #e0e5e0;
+}
+
+
+header aside button {
+	opacity:0;
+}
+header aside.expanded button {
+	opacity:1;
 }
 
 aside.expanded:before {
@@ -404,9 +440,21 @@ aside.expanded a:link, aside.expanded a:visited,aside.expanded > button {
 	font-size:  1em;
 }
 
+#checkout input[type='submit'], .product section form > input, aside.expanded > button {
+	float:  right;
+	padding:10px;
+	margin: 10px 4px;
+	max-width: 150px;
+	float: right;
+	background: #2e1846;
+	border: 1px solid #0f0f0d;
+	font-size:  90%;
+	color: #e0e5e0;
+}
+
 aside.expanded > button {
 	right: 161px;
-	padding:0;
+	/* padding:0; */
 	top: 0;
 }
 
@@ -417,22 +465,22 @@ aside.expanded a:link:after  {
 	height:auto;
 }
 header aside.expanded {
-	background: auto;
-	overflow: visible;
+	overflow: auto;
 	height: auto;
 	padding: 10px;
 	margin-right: 0;
-	cursor:  inherit;
+	/* cursor:  inherit; */
 	transition: height 0.2s;
 	/* box-shadow: inset 0px 0px 141px 0px rgba(255, 157, 0, 0.23); */
 	width: 460px;
+	background: #abaeb0;
 }
 
 aside h2,aside h3 {
 	font-size: 1em;
 	margin: 5px 5px 0 10px;
 	border-bottom: 1px solid #6a4701;
-	padding-bottom: 14px;
+	padding-bottom: 24px;
 	float:  left;
 }
 
@@ -440,7 +488,7 @@ aside table {
 	width: 100%;
 	padding: 8px;
 	margin-bottom: 20px;
-	color: #000;
+	/* color: #2e1846; */
 }
 
 aside td[colspan='3'] {
@@ -519,7 +567,6 @@ aside.expanded div p:before {
 	/* margin-left:5px; */
 }
 
-
 aside.expanded div p:after {
 	content: ' ';
 }
@@ -544,10 +591,11 @@ main > form input, main > form textarea {
 .product section form > input, main > form input[type='submit'] {
 	max-width: 150px;
 	float:right;
-	background: #ff9d00;
+	background: #2e1846;
 	border: 1px solid #0f0f0d;
 	padding: 10px;
 	margin: 14px 10px;
+	color: #e0e5e0;
 }
 
 main.contact section form label,
@@ -634,7 +682,7 @@ body > section > section h2 {
 		border:none;
 		padding: 0;
 		float: left;
-		width: calc(100% - 40px);
+		width: calc(100% - 50px);
 		margin: 5px auto;
 	}
 
@@ -642,14 +690,20 @@ body > section > section h2 {
 		width: calc(100% - 20px);
 		z-index:  110;
 		position:  relative;
-		color: inherit;
+		color: #2e1846;
 		float:  left;
-		overflow-y: scroll;
+		overflow-y: auto;
 		max-height: calc(100vh - 100px);
 		padding-bottom: 25px;
 	}
 	header aside {
-		width: 30px;
+		width: 40px;
+	}
+	header aside button {
+		opacity:0;
+	}
+	header aside.expanded button {
+		opacity:1;
 	}
 	aside > a:link {
 		position:absolute;
@@ -695,8 +749,8 @@ body > section > section h2 {
 
 	figure#banner {
 		margin: 0  0 -4px 0;
-		width: 100%;
-		z-index:  1000;
+		/* width: 100%; */
+		/* z-index:  1000; */
 	}
 
 		section#featured > figure {
@@ -720,7 +774,7 @@ body > section > section h2 {
 		right: 0;
 		cursor:  inherit;
 		/* transition: height 0.2s,height 0.2s, left 1s, position 0.1s; */
-		background: #fed795;
+		background: #e0e5e0;
 		left: 0;
 		/* z-index: 125; */
 		transition: height 0.1s 0.2s, width 0.1s 0.1s, left 0.2s 0.01s, background 0.1s 0.1s;
@@ -745,7 +799,7 @@ body > section > section h2 {
 		float: right;
 		cursor: pointer;
 		line-height: 21px;
-		height: 30px;
+		height: 40px;
 	}
 	aside.expanded:before {
 		content: url('../img/cart.svg');
@@ -781,24 +835,25 @@ body > section > section h2 {
 	header > nav.expanded > a, header > nav.expanded > section > nav > a {
 		float:right;
 		border-bottom: 1px solid #0f0f0d;
-		background: #fea;
+		background: #e0e5e0;
 	}
 	header > nav.expanded > a:hover {
-		background: #602d90;
+		background: #2e1846;
 	}
 	header > nav > section > nav > a:hover {
-		background: #eef;
+		background: #274060;
+		color: #e0e5e0;
 	}
 
 /* https://css-tricks.com/using-multi-step-animations-transitions/ */
 	nav#categories {
 		width: 100%;
 		overflow: hidden;
-		height: 40px;
+		height: 50px;
 		text-align: left;
-		background: #421f63;
+		/* background: #274060; */
 		position: absolute;
-		left: calc(-100% + 40px);
+		left: calc(-100% + 50px);
 		top: 0;
 		cursor:  pointer;
 		transition: none;
@@ -809,19 +864,19 @@ body > section > section h2 {
 
 	nav#categories:before {
 		content: url('/img/menu.svg');
-		height: 30px;
+		height: 40px;
 		margin: 5px 5px;
 		padding:  0;
 		float:  right;
 	}
 	
 	nav#categories:hover {
-		background: #421f63;
-		left: calc(-100% + 45px);
+		background: #274060;
+		/* left: calc(-100% + 45px); */
 		/* height: 70px; */
 	}
 	nav#categories.expanded:hover {
-		background: #582a83;
+		background: #274060;
 		left:  0;
 	}
 	nav#categories.expanded:before,
@@ -837,13 +892,21 @@ body > section > section h2 {
 	}
 	header > a {
 		margin:  0 auto;
+		display:  inline-block;
+		margin-left: 50px;
 	}
+	header svg {
+		height: 46px;
+		width: 100px;
+		margin-top: 2px;
+		margin-bottom: -2px;
+	}
+
 	h1 {
 		position:  absolute;
 		left: -1000%;
 	}
 	h1:before{
-		content:'VVV';
 	}
 	nav#skipnavigation {
 		display:none;
@@ -852,7 +915,7 @@ body > section > section h2 {
 	main, #maincontent {
 		padding: 0;
 		background: none;
-		margin-top: 30px;
+		margin-top: 40px;
 	}	
 	header a > img {
 		height: 40px;
@@ -868,11 +931,11 @@ body > section > section h2 {
 		margin-right: 0;
 		margin-top: 0;
 		position: absolute;
-		width: 30px;
+		width: 40px;
 		overflow:  hidden;
-		height: 30px;
+		height: 40px;
 		top: 0;
-		right: 40px;
+		right: 50px;
 		cursor:  pointer;
 		transition:background 0.2s;
 	}
@@ -884,11 +947,11 @@ body > section > section h2 {
 	}
 
 	header form:hover {
-		background: #602d90;
+		background: #274060;
 	}
 
 	header form.expanded:hover {
-		background:#602d90;
+		background: #274060;
 	}
 
 	header form:hover:before {
@@ -916,7 +979,7 @@ body > section > section h2 {
 		cursor:  inherit;
 		color: #fff;
 		transition: background 0.2s, height 0.2s;
-		background: #fee1ae;
+		background: #e0e5e0;
 		left: 0;
 	}
 
@@ -930,6 +993,16 @@ body > section > section h2 {
 	nav#categories {
 		font-size: 16px;
 	}
+
+	header svg {
+	  	width: 70px;
+	  	height: 65px;
+	  	position:absolute;
+	  	top: -5px;
+	  	left: 119px;
+	}
+
+
 	
 	header aside {top: 30px;width: 40px;}
 	
@@ -954,6 +1027,19 @@ body > section > section h2 {
 	#maincontent {
 		background:none;
 	}
+
+	header svg {
+	 	width: 190px;
+	 	height: 145px;
+	 	/* position: absolute; */
+	 	/* top: 20px; */
+	 	/* left: 20px; */
+	 	transition: all 0.3s;
+	}
+	header > a {
+		float:left;
+		/* background: #ffffff; */
+	}
 	header aside {
 		width: 190px;
 		top: 40px;
@@ -961,29 +1047,43 @@ body > section > section h2 {
 	header form {
 		width:50%;
 		margin:  2% auto;
+		display:  block;
 	}
 
 }
 
 @media (min-width: 1200px) {
+
+	header > a {
+		/* display:  inline-block; */
+		padding-left: 20px;
+		float:  left;
+		/* background: #fff; */
+	}
   	header form {
-		margin-right: 36px;
-		/* margin-top: -15px; */
+		width: calc(100% - 195px);
+		display: block;
+		margin: 10px auto;
 	}
 
-	header form {
-		/* margin-left: 27px; */
-		/* width: 45%; */
-		margin-bottom: 10px;
+	header > div {
+	display:  none;
 	}
 
 	header form fieldset {
-		margin: 5px auto;
+		margin: 5px;
 		/* color: #fff; */
-		position:  absolute;
-		top:  30px;
-		width:  30%;
-		left: 20px;
+		/* position:  absolute; */
+		/* top:  30px; */
+		width: calc(100% - 230px);
+		/* left: 20px; */
+		text-align: left;
+	}
+
+	#aoptions {
+		/* width: 20%; */
+		display:  block;
+		margin: 0 auto;
 	}
 
 	header aside {
@@ -998,7 +1098,7 @@ body > section > section h2 {
 	nav#categories {
 		/* clear: none; */
 		/* float: right; */
-		/* background: #fee1ae; */
+		background: #e0e5e0;
 		/* padding: 3px 0; */
 		/* margin: 10px 0; */
 		/* margin-left: 0; */

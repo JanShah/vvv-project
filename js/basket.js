@@ -3,6 +3,31 @@ function createDOM(element){
 	return document.createElement(element);
 }
 
+
+changeLogo()
+// https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet
+function changeLogo() {
+	var colors = [
+		'd35112','9a021a','e0e5e0','274160','2d1747'
+	]
+	var sheet = document.styleSheets[0]
+	console.log(sheet)
+	var logoParts = ['st1','st2','st0','st3']
+	var styles = logoParts.forEach(function(part) {
+		var id = Math.floor(Math.random()*colors.length)
+		var rule = '.'+part+' {fill:#'+colors.splice(id,1)+'}'
+		if(!isIe()) {
+			sheet.insertRule(rule,sheet.rules.length)
+		} else {
+			sheet.insertRule(rule,sheet.rules.length-100)
+			
+		}
+
+	})
+}
+
+
+
 //Get window path 
 // optional id = page name or true
 // returns true/false for matching path or pathname 
@@ -30,6 +55,8 @@ function populateShoppingBasket() {
 	var oldDate = new Date(localStorage.getItem('cacheLifeTime'))
 	var hours = (date - oldDate)/1000/60/60
 	if(hours>1) {
+		console.log(date,oldDate,hours)
+		localStorage.setItem('cacheLifeTime',date.toString())
 		basket = []
 		localStorage.removeItem('basket')
 	}
@@ -128,7 +155,8 @@ function basketSubTotal(checkout) {
 			basketTotal += parseFloat(item.price,10) * parseInt(item.qty,10)
 			quantityInBasket+=parseInt(item.qty,10)
 		})
-		var indicator = document.getElementsByTagName('div')[1]
+		var indicator = document.getElementsByTagName('div')[2]
+		console.log(document.getElementsByTagName('div'))
 		var p = document.createElement('p')
 		p.innerHTML = quantityInBasket
 		indicator.innerHTML = ''

@@ -50,10 +50,13 @@ ul.breadcrumb li:last-child:before {
 	border-right: 2px solid #ff9d00;
 }
 ul.breadcrumb li:first-child:hover:before {
-	transform: rotate(17deg);
+	transform: rotate(-16deg);
 }
 ul.breadcrumb li:nth-of-type(2):hover:before {
-	transform: rotate(17deg);
+	transform: rotate(-135deg);
+}
+ul.breadcrumb li:last-child:hover:before {
+  transform: rotate(139deg);
 }
 ul.breadcrumb li{
 	float:left;
@@ -85,7 +88,6 @@ ul.breadcrumb li:first-child:before {
 		padding: 0;
 		margin: 0;
 		width: 100%;
-		margin-top: 0px;
 	}
 	ul.breadcrumb li:nth-of-type(1) {
 		width: 70px;

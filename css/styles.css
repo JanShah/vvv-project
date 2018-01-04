@@ -26,7 +26,7 @@ body > section {
 .product > h2, .contact > h3 {
 	margin: 10px;
 	float: left;
-	padding: 10px;
+	/* padding: 10px; */
 	background:  white;
 }
 
@@ -125,14 +125,14 @@ body > section {
 }
 
 .product section form fieldset:nth-of-type(1) {
-	border: 2px solid rgba(96, 45, 144, .5);	
+	border: 2px solid rgba(39, 64, 96, 0.53);
 }
 
 .product section form fieldset:nth-of-type(2) {
-	border: 2px solid rgba(238, 17, 24, .5);	
+	border: 2px solid rgba(153, 3, 29, 0.5);
 }
 .product section form fieldset.notes {
-	border: 2px solid rgba(255, 157, 0, .5);	
+	border: 2px solid rgba(46, 24, 70, 0.5);
 	width: calc(100% - 8px);
 	min-height: 100px;
 }
@@ -160,7 +160,7 @@ body > section {
 }
 
 .productprice {
-	width: calc(100%  - 145px);
+	width: calc(100%  - 155px);
 	font-size:  20px;
 	text-align:  right;
 	padding:  10px;
@@ -306,16 +306,6 @@ input[type='radio']:checked:after {
 	text-align:  center;
 	transition: border-radius 0.2s, border 0.2s;
 	opacity: 0.8;
-}
-#checkout input[type='submit'], .product section form > input, aside.expanded > button {
-	float:  right;
-	padding:10px;
-	margin: 10px 4px;
-	max-width: 150px;
-	float: right;
-	background: #ff9d00;
-	border: 1px solid #0f0f0d;
-	font-size:  90%;
 }
 
 .product section form fieldset label {

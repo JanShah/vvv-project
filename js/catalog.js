@@ -215,6 +215,8 @@ function start(){
 		var that = this
 		//or arrow function to save context. 
 		window.addEventListener('hashchange',function(){
+			changeLogo()
+
 			var mainNav = document.getElementById('categories')
 			var NavExpanded = mainNav.hasAttribute('class','expanded')
 			if(NavExpanded) {
@@ -327,6 +329,7 @@ function getContent(items,hash) {
 	if(basket) {
 		var shoppingCart = document.getElementById('cartcontents');
 		shoppingCart.innerHTML=''
+		console.log(this)
 		populateShoppingBasket()
 	}
 	// getTiming({reason:'get Content end: '})
@@ -462,6 +465,7 @@ function openAlert(message,order) {
 
 //store updated basket in localstorage
 function storeBasket(orderInfo) {
+	console.log('getting to the basket',localStorage.getItem('basket'))
 	var date = new Date().toString()
 	orderInfo.date = date
 	var basket = localStorage.getItem('basket')
@@ -486,6 +490,7 @@ function storeBasket(orderInfo) {
 		}
 		localStorage.setItem('basket',JSON.stringify(basket))			
 	} else {
+		console.log('no basket',JSON.stringify([orderInfo]))
 		localStorage.setItem('basket',JSON.stringify([orderInfo]))
 	}
 	populateShoppingBasket()
