@@ -3,7 +3,6 @@ window.onload=function() {
 	if(basket) {
 		basket = basket.sort(function(prev,item){
 			//sort to meet requirements of project specification (return a list sorted by price)
-			console.log('sorting')
 			return parseFloat(prev.price,10)<parseFloat(item.price,10)
 		})
 		localStorage.setItem('basket',JSON.stringify(basket))
@@ -56,7 +55,6 @@ function loadCheckout() {
 }	
 
 function addTaxes(subtotal,row) {
-	console.log(row)
 	subtotal = parseFloat(subtotal,10)
 	var VAT = 1.2
 	var shipping
@@ -69,7 +67,6 @@ function addTaxes(subtotal,row) {
 	subtotal = subtotal - vatTotal
 	var finalTotal = vatTotal + subtotal + shipping
 	var arr = [subtotal,vatTotal,shipping,finalTotal]
-	console.log(vatTotal,subtotal,shipping)
 	var table = buildTable(arr,row)
 	return table
 }

@@ -337,21 +337,18 @@ function addServiceWorker() {
 	if('serviceWorker' in navigator) {		
 		navigator.serviceWorker.register('/sw.js')
 		.then(function(registration) {
-			// console.info('Service worker registered: ',registration.scope)			
+			console.info('Service worker registered: ',registration.scope)			
 		},function(error) {
-			// console.error('we got an error',error)
+			console.error('we got an error',error)
 		}
 	)
 	}
 }
 
-
-
 //use this function to return dom elements
 function createDOM(element){
 	return document.createElement(element);
 }
-
 
 //function to get execution timing in milliseconds
 //rewritten to store the first value, then sum it up and give timings at the end. 
@@ -458,9 +455,6 @@ function loadImages() {
 	}
 }
 
-
-
-
 function expandItem(event) {	
 	// only effect valid nodes in header, FORM, ASIDE and NAV
 	//https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeName
@@ -553,8 +547,6 @@ function getStock(things,callback) {
 			callback.apply(xhr.response);			
 	}
 }
-
-
 
 function stock(item) {
 	var itemStore

@@ -1,13 +1,8 @@
 ul.breadcrumb {
 	margin: 0;
 	padding-left: 0;
-	float: left;
-	clear: both;
 	width: 100%;
-	color:white;
-	background: none;
-	z-index:  -1;
-	margin-top: 0;
+	height: 25px;
 }
 ul.breadcrumb li:first-child {
 	width: 70px;
@@ -85,9 +80,7 @@ ul.breadcrumb li:first-child:before {
 		margin-left: -14px;
 	}
 	ul.breadcrumb {
-		padding: 0;
-		margin: 0;
-		width: 100%;
+		float: left;
 	}
 	ul.breadcrumb li:nth-of-type(1) {
 		width: 70px;

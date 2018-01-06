@@ -1,7 +1,6 @@
 self.addEventListener('install',function(event) {
 	var cacheName = 'vvv-app-cache'
 	var cacheURLs = [
-		'https://fonts.googleapis.com/css?family=Kaushan+Script',
 		'/',
 		'/manifest.json',
 		'/index.html',
@@ -35,28 +34,6 @@ self.addEventListener('install',function(event) {
 		'/img/search.svg',
 		'/img/bgpattern.svg',
 		'/img/loading.gif',
-		'/img/shirt/beowulf-shirt1.jpg',
-		'/img/shirt/beowulf-shirt2.jpg',
-		'/img/shirt/beowulf-shirt3.jpg',
-		'/img/shirt/beowulf-shirt4.jpg',
-		'/img/shirt/shirt1.jpg',
-		'/img/shirt/shirt2.jpg',
-		'/img/shirt/shirt3.jpg',
-		'/img/shirt/shirt4.jpg',
-		'/img/breeches/breeches1.jpg',
-		'/img/breeches/breeches2.jpg',
-		'/img/breeches/breeches3.jpg',
-		'/img/breeches/breeches4.jpg',
-		'/img/cloak/cloak1.jpg',
-		'/img/cloak/cloak2.jpg',
-		'/img/cloak/cloak3.jpg',
-		'/img/cloak/cloak4.jpg',
-		'/img/tunic/tunic1.jpg',
-		'/img/tunic/tunic2.jpg',
-		'/img/tunic/tunic3.jpg',
-		'/img/tunic/tunic4.jpg',
-		'/img/tunic/romantunic1.jpg',
-		'/img/tunic/romantunic2.jpg'
 	]
 	//https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
 	// The install event is your chance to cache everything you need before being able 

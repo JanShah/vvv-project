@@ -19,8 +19,6 @@ function categories() {
 	}
 }
 
-
-
 function Category (props,item){
 		var itemId = item
 		this.title =this.getTitle(props.title)
@@ -29,8 +27,7 @@ function Category (props,item){
 		this.link = this.getLink(props.name)
 		this.inPageLink = this.samePageLink(props.name)
 		this.image = this.getImage(props.image)
-		this.getAll = this.getAll(itemId)
-	
+		this.getAll = this.getAll(itemId)	
 }
 
 Category.prototype.getAll = function(item) {
@@ -113,8 +110,7 @@ function viewProducts(e) {
 				var categoryDOM = document.getElementById('category')
 				categoryDOM.innerHTML=''
 				categoryDOM.appendChild(category.getAll)
-				categoryDOM.appendChild(items)
-	
+				categoryDOM.appendChild(items)	
 			}
 		} catch(error) {
 		}
@@ -122,7 +118,6 @@ function viewProducts(e) {
 	else 
 		getStock('products',categories)
 }
-
 
 function getInventory(stock,id) {
 	var outerSection = createDOM('section')

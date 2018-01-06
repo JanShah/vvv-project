@@ -377,7 +377,7 @@ tr.newItem {
 	left:0;
 	width: 100%;
 	padding:30px 0;
-	background:#602d90;
+	/* background: rgb(39, 65, 96); */
 	text-align: center;
 	font-size: 20px;
 	animation-name: fadeInOut;
@@ -385,6 +385,13 @@ tr.newItem {
 	opacity: 0;
 	z-index: 200;
 	color:white;
+}
+.warning {
+	background: rgb(154, 2, 26);
+}
+
+.success {
+	background: #274060;
 }
 
 

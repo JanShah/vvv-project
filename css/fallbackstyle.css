@@ -9,18 +9,12 @@ aside:focus,aside:hover {
 }
 
 .product figure:nth-of-type(2) img:focus, .product img:focus {
-	
-width: 100%;
-	
-transition:  width 1s;
-	
-position: fixed;
-	
-z-index:  100;
-	
-top: 0;
-	
-max-width: 450px;
+	width: 100%;		
+	transition:  width 1s;
+	position: fixed;		
+	z-index:  100;		
+	top: 0;		
+	max-width: 450px;
 }
 
 noscript {
@@ -34,7 +28,6 @@ noscript {
 
 @media (max-width: 560px) {
 
-
 	form:focus,form:hover {
 		z-index:110;
 		right:0;
@@ -46,7 +39,7 @@ noscript {
 		transition: background 0.3s, height 0.3s;
 		background: #602d90;
 	}
-
+/* https://css-tricks.com/using-multi-step-animations-transitions/ */
 	nav#categories:focus,nav#categories:hover {
 		width: calc(100% - 20px);
 		font-size: 14px!important;
@@ -55,13 +48,11 @@ noscript {
 		padding: 10px;
 		z-index: 110;
 		padding-top: 13px;
-		/* position: relative; */
 		right: 0;
 		cursor: inherit;
 		transition: background 0.3s, height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		background: #a51b1f;
 	}
-
 }
 
 form:focus:before, aside:focus:before, nav#categories:focus:before {

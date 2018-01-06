@@ -1,5 +1,4 @@
 function swiper(imageList,event) {
-	event.preventDefault()	
 	window.addEventListener('touchcancel',touchCancelled)
 	window.addEventListener('touchend',endedSwipe)
 	var startingPoint = event.changedTouches[0]
@@ -111,7 +110,7 @@ function largeImage(e){
 
 	if(swiper) {
 		this.swiper = swiper.bind(this,replaceImageNode)
-		image.addEventListener('touchstart',this.swiper)
+		image.addEventListener('touchstart',this.swiper,{passive:true})
 	}
 	sectionInner.appendChild(image)
 	section.appendChild(sectionInner)
@@ -119,7 +118,7 @@ function largeImage(e){
 	section.addEventListener('click',function(e){
 		e.preventDefault()
 		smallerImage.src = image.src
-		smallerImage.dataset.ref = image.dataset.ref
+		// smallerImage.dataset.ref = image.dataset.ref
 		smallerImage.addEventListener('click',largeImage)
 		if(swiper) {
 			image.removeEventListener('touchstart',this.swiper)		
@@ -296,14 +295,14 @@ function getContent(items,hash) {
 	}
 	// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
 	//dealing with dynamic offsets
-	var moveHeight = document.getElementById('products').offsetTop
-	// alert(moveHeight)
-	window.setTimeout(function(){
-		window.scrollTo(0,0)
-		if(window.innerWidth>560) {	
-			window.scrollTo(0,moveHeight)
-		}
-			},0)
+	if(window.innerWidth>560) {	
+		var moveHeight = document.getElementById('products').offsetTop
+		window.setTimeout(function(){
+			window.scrollTo(0,0)
+				window.scrollTo(0,moveHeight)
+
+		},0)
+	}
 
 	var basket = JSON.parse(localStorage.getItem('basket') )
 	if(basket) {
@@ -319,12 +318,11 @@ function getContent(items,hash) {
 // takes single item options (item), list of available options (options), 
 // size or colour as string(name), product ID as string(id)
 // returns a fieldset of option buttons and labels 
+
 function radioSelections (item,options,name,id) {
 	var fieldset = createDOM('fieldset')
 	var legend = createDOM('legend')
-
 	legend.innerHTML = name
-
 	fieldset.appendChild(legend)
 	if(item && item.length) {
 		for(var i = 0;i<item.length;i++) {
@@ -340,7 +338,6 @@ function radioSelections (item,options,name,id) {
 				// option.setAttribute('checked','true')
 			}
 			option.setAttribute('name',name)
-			option.setAttribute('required','true')
 			
 			label.setAttribute('for',option.id)
 			label.innerHTML=options[val]
@@ -423,24 +420,28 @@ function openAlert(message,order) {
 	var alertBox = createDOM('section')
 	if(order) {
 		messages.added='Added '+order.garment+' to basket'
-		timeDelay = 600
-		alertBox.style.height = '100vh'
+		timeDelay = 1200
+//		alertBox.style.height = '100vh'
 	}
 	alertBox.id='alertBox'
 	alertBox.innerHTML = messages[message]
 	document.body.appendChild(alertBox)
-	window.setTimeout(function() {
+	if(order) {
+		alertBox.classList.add('success')		
+		}	else {
+				alertBox.classList.add('warning')
+		}	
+		window.setTimeout(function() {
 		document.body.removeChild(alertBox)
 		// window.location.assign()
 		if(order) {
-			window.scrollTo(0,0)
+	//		window.scrollTo(0,0)
 			var basket = document.getElementById('shoppingcart')
 			basket.classList.add('expanded')
 			basket.focus()
 			var currentHeight = window.scrollY
-			window.addEventListener('scroll',removeExpand.bind(this,currentHeight))
-	
-		}	
+			window.addEventListener('scroll',removeExpand.bind(this,currentHeight))	
+		}
 	},timeDelay)
 	return
 }
@@ -514,7 +515,7 @@ function addToCartForm (item) {
 		var sizes = radioSelections(that.sizes,sizeOptions,'size',that.id)
 		var colours = radioSelections(that.colours,colourOptions,'colour',that.id)
 		var notes = notesEntryBox(that.id)
-		var price = createDOM('section')
+		var price = createDOM('div')
 		var submit = createDOM('input')
 		price.classList.add('productprice')
 		price.innerHTML = '£'+item.price			

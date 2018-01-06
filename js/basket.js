@@ -16,11 +16,16 @@ function changeLogo() {
 		if(part==='st3'&&colors[id]==='b4c0b4') {
 			id=1;
 		}
+
 		var rule = '.'+part+' {fill:#'+colors.splice(id,1)+'}'
-		if(!isIe()) {
+		if(!isIe()&&sheet.rules) {
 			sheet.insertRule(rule,sheet.rules.length)
-		} else {
-			sheet.insertRule(rule,sheet.rules.length-100)
+		} else if (sheet.rules){
+			//some funny number to make this compatible with ie.  don't ask, I've no idea. 
+			sheet.insertRule(rule,sheet.rules.length-112)
+			// mozilla uses cssRules
+		} else if (sheet.cssRules) {
+			sheet.insertRule(rule,sheet.cssRules.length)
 			
 		}
 
@@ -130,10 +135,10 @@ function getaddMinusButtons(item) {
 	removeButton.addEventListener('click',changeOrder)
 	addButton.addEventListener('click',changeOrder)
 	if(qty>1) {
-		removeButton.id = ''
+		// removeButton.id = ''
 		removeButton.innerText = '-'
 	} else {
-		removeButton.id = 'deleteItem'
+		// removeButton.id = 'deleteItem'
 		removeButton.innerText = 'x'
 	}
 	// addButton.id = ''
