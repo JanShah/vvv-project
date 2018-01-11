@@ -5,18 +5,18 @@
 	 width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
 <path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 	M6.848,7.291L4.389,4.228L2.495,4.39"/>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M21.819,20.971H4.484
+<path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M21.818,20.971H4.484
 	c-1.304-4.974,2.889-5.377,2.889-5.377"/>
 <circle fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="5.628" cy="23.503" r="2.496"/>
 <circle fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" cx="21.334" cy="23.503" r="2.496"/>
 <line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="23.443" y1="14.268" x2="7.542" y2="14.268"/>
 <line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="6.699" y1="10.887" x2="24.18" y2="10.887"/>
-<line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="12.2" y1="17.649" x2="9.405" y2="7.505"/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="12.2" y1="17.648" x2="9.405" y2="7.505"/>
 <line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="21.581" y1="7.505" x2="18.939" y2="17.044"/>
-<line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="15.506" y1="17.649" x2="15.512" y2="7.505"/>
+<line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" x1="15.506" y1="17.648" x2="15.512" y2="7.505"/>
 <path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-	M27.625,8.019C27.625,4.695,24.931,2,21.606,2c-3.15,0-5.731,2.422-5.992,5.505H5.679l2.794,10.145l14.039-0.832l0.919-3.063
-	C25.862,12.981,27.625,10.706,27.625,8.019z"/>
-<circle fill="#FFFFFF" cx="21.606" cy="8.019" r="6.019"/>
-<line fill="none" stroke="#FEBF16" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="25.05" y1="8.082" x2="18.11" y2="8.083"/>
+	M27.625,8.019c0-3.324-2.693-6.019-6.02-6.019c-3.149,0-5.73,2.422-5.992,5.505H5.679L8.473,17.65l14.039-0.832l0.92-3.063
+	C25.861,12.981,27.625,10.706,27.625,8.019z"/>
+<circle fill="#FFFFFF" cx="21.605" cy="8.019" r="6.019"/>
+<line fill="none" stroke="#FEBF16" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="25.05" y1="8.082" x2="18.109" y2="8.083"/>
 </svg>

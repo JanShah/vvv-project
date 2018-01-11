@@ -132,7 +132,6 @@ function largeImage(e){
 }
 
 window.onload =function() {
-
 	if(!isIe()) {
 
 		//load the Product constructor function as script tag to document body if featureset test passes.
@@ -374,7 +373,6 @@ function notesEntryBox(id) {
 //https://code.lengstorf.com/get-form-values-as-json/
 function getOrderEntries(detail) {
 	var info = []
-	// console.info('getting info',getTiming())
 	if(detail.type==='radio' && detail['checked']) {		
 		info.push(detail.name) 
 		info.push(detail.value)
@@ -448,7 +446,6 @@ function openAlert(message,order) {
 
 //store updated basket in localstorage
 function storeBasket(orderInfo) {
-	console.log('getting to the basket',localStorage.getItem('basket'))
 	var date = new Date().toString()
 	orderInfo.date = date
 	var basket = localStorage.getItem('basket')
@@ -473,7 +470,6 @@ function storeBasket(orderInfo) {
 		}
 		localStorage.setItem('basket',JSON.stringify(basket))			
 	} else {
-		console.log('no basket',JSON.stringify([orderInfo]))
 		localStorage.setItem('basket',JSON.stringify([orderInfo]))
 	}
 	populateShoppingBasket()

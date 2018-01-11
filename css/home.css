@@ -1,7 +1,9 @@
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/background */
 body {
 	font-family: sans-serif;
 	margin: 0;
-	background: url('../img/bgpattern.svg');
+	background: repeat fixed center top/25%  url(../img/bg.svg);
 }
 
 cite {
@@ -92,7 +94,7 @@ nav > aside {
 
 header > nav > a:hover {
   background: #2e1846;
-  color: #e0e5e0!important;
+  color: #fed795!important;
 }
 
 header > nav > section {
@@ -107,7 +109,7 @@ figure#banner {
 }
 
 header {
-	background: #e0e5e0;
+	background: linear-gradient(#e0e5e0,#eeeeff);
 	z-index: 100;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.22);
 	box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.22);
@@ -174,6 +176,7 @@ header form label {
   z-index: 122;
   display:  block;
   color:  white;
+  margin-top:;
 }
 
 #aoptions a {
@@ -181,7 +184,7 @@ header form label {
 }
 
 #aoptions a img {
-	width:50px;
+	height: 90px;
 }
 
 nav#skipnavigation {
@@ -209,6 +212,7 @@ nav#skipnavigation {
 #featured > figure > figCaption {
 	text-align: center;
 	color: #e0e5e0;
+	padding: 10px;
 }
 
 #blog h3 {
@@ -275,7 +279,7 @@ nav#categories,nav#footernav a {
 
 nav#categories h2 {
   position:  absolute;
-  left:  -1000%;
+  left: -2000%;
 }
 
 #categories > section nav a {
@@ -290,7 +294,7 @@ section#featured img {
 }
 
 #maincontent {
-	max-width: 1600px;
+	max-width: 1200px;
 	margin: 0 auto 10px;
 }
 
@@ -360,13 +364,13 @@ header aside:before {
 }
 
 aside:hover, aside:hover+h2, aside:hover~table {
-	background: #e0e5e0;
+	background: #eef;
 	color: #274060;
 }
 
 aside.expanded:hover {
-	background: #2e1846;
-	color: #e0e5e0;
+	background: #fea;
+	color: #2e1846;
 }
 
 
@@ -405,7 +409,7 @@ aside.expanded a:link, aside.expanded a:visited,aside.expanded > button {
 	background: #2e1846;
 	border: 1px solid #0f0f0d;
 	font-size:  90%;
-	color: #e0e5e0;
+	color: #fed795;
 }
 
 aside.expanded > button {
@@ -426,7 +430,7 @@ header aside.expanded {
 	margin-right: 0;
 	transition: height 0.2s;
 	width: 460px;
-	background: #abaeb0;
+	background: hsla(214, 42%, 86%, 1);
 }
 
 aside h2,aside h3 {
@@ -938,11 +942,11 @@ body > section > section h2 {
 	}
 
 	header form:hover {
-		background: #274060;
+		background: #eef;
 	}
 
 	header form.expanded:hover {
-		background: #274060;
+		background: #ccd9ea;
 	}
 
 	header form:hover:before {

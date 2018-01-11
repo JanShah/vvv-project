@@ -69,6 +69,15 @@
 // interactions must be compliant with the guidelines.
 
 
+//Issues: 
+// serp would be very poor unless ssr was implemented. 
+//doesn't work on ipad for some, as yet unknown reason. 
+//unsure about all platforms. Tested on windows 10 phone, galaxy s4, iphone 5, 6, 
+//note 8, windows 7 browsers (chrome, mozilla, opera, ie 10), windows 10 Edge browser
+//galaxy browser (slight issue with large image in gallery)
+//some browsers have issue with promises and fall back to ie mode script, but others just fail.. 
+//also tested using browserstack but unreliable results 
+//(didn't work on iphone 5 or 6, ipad air or galaxy tab on browserstack but live device tests on iphones pass)
 //the programming has been done using vscode, with some scratchjs for testing
 // **all of it is my own code**.
 //many references to MDN, stackOverflow et all. 

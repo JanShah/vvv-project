@@ -40,7 +40,7 @@ main section #subtotals td:nth-of-type(2) p {
 }
 #subtotals button {
 	min-width: 40px;
-	background: #d35013;
+	background: #e0e5e0;
 	border:  1px solid;
 	font-size: 26px;
 	transition:  background 0.2s;

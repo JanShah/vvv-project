@@ -16,18 +16,18 @@ body > section {
 
 
 .product, .blog {
-	max-width: 100%;
-	float:  left;
-	width: 100%;
-	background:  none;
+	/* max-width: 100%; */
+	/* float:  left; */
+	/* width: 100%; */
+	/* background:  none; */
 	padding: 0;
 }
 
 .product > h2, .contact > h3 {
 	margin: 10px;
-	float: left;
+	/* float: left; */
 	/* padding: 10px; */
-	background:  white;
+	/* background:  white; */
 }
 
 .product h2 {
@@ -58,7 +58,7 @@ body > section {
 .product img {
 	width: calc(100% - 12px);
 	margin-bottom: 10px;
-	max-width: 480px!important;
+	max-width: 650px!important;
 	cursor: pointer;
 }
 
@@ -71,7 +71,7 @@ body > section {
 	box-sizing: border-box;
 	/* max-width: calc(100% - 30px); */
 	min-height: calc(100vh - 30px);
-	background: #fff;
+	background: rgba(238, 238, 255, .99);
 	max-width: 1600px;
 }
 
@@ -83,7 +83,7 @@ body > section {
 }
 .product section > h3 {
 	font-variant:  all-petite-caps;
-	font-size: 1.5em;
+	font-size: 2em;
 	/* position:  absolute; */
 	/* left:  -1000%; */
 }
@@ -491,7 +491,7 @@ tr.newItem {
 
 
 	.product {
-		/* margin-top: -79px; */
+		margin-top: 75px;
 	}
 
 	.product section figure {
@@ -662,6 +662,9 @@ tr.newItem {
 @media (min-width: 1200px) {
 	.product > section {
 		min-height: 750px;
+		/* width:  600px; */
+		/* display:  inline-block; */
+		/* margin: 20px; */
 	}
 	.product > section > section:nth-of-type(1) {
 		width: calc(40% - 48px);
