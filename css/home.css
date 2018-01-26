@@ -1,4 +1,3 @@
-
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/background */
 body {
 	font-family: sans-serif;
@@ -67,11 +66,15 @@ a:link,a:visited {
 	text-decoration: none;
 }
 
-.contact a:link, #shoppingcart a:link,#shoppingcart a:visited {
+.contact a:link, 
+#shoppingcart a:link,
+#shoppingcart a:visited {
 	color: #0f0f0d;
 }
 
-nav a:link, nav a:visited, header a:visited, #shoppingcart a:hover {
+nav a:link, nav a:visited, 
+header a:visited, 
+#shoppingcart a:hover {
 	color: #2e1846;
 }
 
@@ -83,8 +86,7 @@ nav a:last-child:after {
 #categories > section nav a:hover:after {
 	background: rgb(154, 2, 26);
 }
-a:hover {
-}
+
 
 nav > aside {
   float:  right;
@@ -106,6 +108,41 @@ header > nav > section {
 figure#banner {
 	margin: 0;
 	padding:  0;
+}
+
+nav > nav {
+  position:  absolute;
+  left:-1000%;
+}
+/* Second level navigation css. unused */
+nav > nav:hover,
+nav a:hover + nav,
+nav > nav:focus,
+nav a:focus + nav  {
+  display:  block;
+  left:  0  ;
+  width: 100%;
+/*   height:  100px; */
+  background:  #eef;
+}
+nav a:hover + nav a,
+nav > nav:hover  a,
+nav a:focus + nav a,
+nav > nav:focus  a {
+  display:inline-block;
+  width:25%;
+  margin-left:-4px;
+  padding:20px 0;
+}
+
+nav > nav a:hover {
+  background:#ccc;
+}
+/* end Second level navigation css. */
+
+
+nav a  {
+  margin-left:-4px;
 }
 
 header {
@@ -176,7 +213,6 @@ header form label {
   z-index: 122;
   display:  block;
   color:  white;
-  margin-top:;
 }
 
 #aoptions a {
@@ -228,7 +264,8 @@ main article {
 	color: #e0e5e0;
 }	
 
-article a:link, article a:visited {
+article a:link, 
+article a:visited {
 	color:#eef;
 }
 
@@ -273,7 +310,8 @@ img#homebanner {
 	width: 100%;
 }
 
-nav#categories,nav#footernav a {
+nav#categories,
+nav#footernav a {
 	text-decoration: none;
 }
 
@@ -286,8 +324,7 @@ nav#categories h2 {
 	color:#2e1846;
 }
 
-#categories > section nav a:after {
-}
+
 
 section#featured img {
 	width: 100%;
@@ -303,7 +340,8 @@ section#about {
 	color: #fff;
 }
 
-#about a:link, #about a:visited {
+#about a:link, 
+#about a:visited {
 	color:#fff;
 	font-weight:bold;
 }
@@ -330,8 +368,6 @@ section#about {
 section#featured {
 	background: #e0e5e0;
 }
-
-	
 
 nav#skipnavigation {
 	font-size: 1em;
@@ -363,7 +399,9 @@ header aside:before {
 	padding-bottom: 10px;
 }
 
-aside:hover, aside:hover+h2, aside:hover~table {
+aside:hover, 
+aside:hover+h2, 
+aside:hover~table {
 	background: #eef;
 	color: #274060;
 }
@@ -389,7 +427,9 @@ aside.expanded:before {
 	cursor: pointer;
 }
 
-aside.expanded a:link, aside.expanded a:visited,aside.expanded > button {
+aside.expanded a:link, 
+aside.expanded a:visited,
+aside.expanded > button {
 	position: absolute;
 	color: #000;
 	background:  none;
@@ -400,7 +440,9 @@ aside.expanded a:link, aside.expanded a:visited,aside.expanded > button {
 	font-size:  1em;
 }
 
-#checkout input[type='submit'], .product section form > input, aside.expanded > button {
+#checkout input[type='submit'], 
+.product section form > input, 
+aside.expanded > button {
 	float:  right;
 	padding:10px;
 	margin: 10px 4px;
@@ -529,14 +571,16 @@ aside table tfoot td:before {
 }
 
 main section form input[type='text'],
-main > form input, main > form textarea {
+main > form input, 
+main > form textarea {
 	width: calc(100% - 180px);
 	float:  right;
 	padding: 10px;
 	margin: 10px;
 }
 
-.product section form > input, main > form input[type='submit'] {
+.product section form > input, 
+main > form input[type='submit'] {
 	max-width: 150px;
 	float:right;
 	background: #2e1846;
@@ -547,7 +591,8 @@ main > form input, main > form textarea {
 }
 
 main.contact section form label,
-main > form label,#checkout label {
+main > form label,
+#checkout label {
 	float: left;
 	text-align:  right;
 	width: 120px;
@@ -588,7 +633,7 @@ footer > img {
 
 footer > section {
 	float: right;
-	display: inline-block;
+	/* display: inline-block; */
 }
 
 footer nav {
@@ -606,13 +651,16 @@ footer nav {
 	 	height: 75px;
 	 	margin-left: 20px;
 	}
+
 	header > a {
 		float:left;
 	}
+
 	header aside {
 		width: 190px;
 		top: 20px;
 	}
+
 	header h1 {
 	  margin: 0 auto;
 	  color: #274060;
@@ -620,6 +668,7 @@ footer nav {
 	  text-align: center;
 	  font-stretch: condensed;
 	}
+
 	header form {
 		width: calc(100% - 340px);
 		margin: 10px 160px 0 130px;
@@ -633,6 +682,7 @@ footer nav {
 	header > nav > a {
 		width: calc(20% - 4px);
 	}
+
 	nav#categories {
 		font-size: 16px;
 		margin: 0;
@@ -668,13 +718,16 @@ footer nav {
 		width: calc(100% - 40px);
 		margin: 10px auto;
 	}
+
 	footer section h5 {
 	  margin: 0;
 	}
+
 	footer nav {
 	  margin: 10px 0 0;
 	  padding: 10px;
 	}
+
 	#featured > figure {
 	  width: calc(50% - 60px);
 	}
@@ -699,6 +752,7 @@ body > section > section h2 {
 		left: 0;
 		width: calc(100% - 50px);
 	}
+
 	header > nav > section > nav {
 		display:block;
 		width: calc(100%);
@@ -725,16 +779,20 @@ body > section > section h2 {
 		max-height: calc(100vh - 100px);
 		padding-bottom: 25px;
 	}
+
 	header aside {
 		width: 40px;
 		top: 0;
 	}
+
 	header aside button {
 		opacity:0;
 	}
+
 	header aside.expanded button {
 		opacity:1;
 	}
+
 	aside > a:link {
 		position:absolute;
 		top:0px;
@@ -762,6 +820,7 @@ body > section > section h2 {
 		border-radius:  5px;
 		text-align:  center;
 	}
+
 	aside h2 {
 		display: none;
 	}
@@ -809,9 +868,11 @@ body > section > section h2 {
 		line-height: 21px;
 		height: 40px;
 	}
+
 	#categories .expanded a {
 		color:black;
 	}
+
 	aside.expanded:before {
 		content: url('../img/cart.svg');
 		
@@ -821,24 +882,27 @@ body > section > section h2 {
 		content: url('../img/search.svg');
 	}
 
-	nav#categories a:after, header .entryForm:before {
+	nav#categories a:after, 
+	header .entryForm:before {
 		content: '';
 	}
 	header > nav > a {
-		width: calc(100% - 50px);	
+		width: calc(100% - 50px);
 	}
 	header > nav > section > nav > a {
 		width:100%;
 		margin: 0;
 	}
-	header > nav > a, header > nav > section > nav > a {
+	header > nav > a, 
+	header > nav > section > nav > a {
 		text-align: center;
 		padding: 6px 0;
 		font-size: 1.5em;
 		float: left;
 		color: #0f0f0d;
 	}
-	header > nav.expanded > a, header > nav.expanded > section > nav > a {
+	header > nav.expanded > a,
+	header > nav.expanded > section > nav > a {
 		float:right;
 		border-bottom: 1px solid #0f0f0d;
 		color: #2e1846;
@@ -868,7 +932,7 @@ body > section > section h2 {
 	}
 
 	nav#categories:before {
-		content: url('/img/menu.svg');
+		content: url('../img/menu.svg');
 		height: 40px;
 		margin: 5px 5px;
 		padding:  0;
@@ -902,8 +966,8 @@ body > section > section h2 {
 		position: absolute;
 		left: -1000%;
 	}
-	h1:before{
-	}
+	
+	
 	nav#skipnavigation {
 		display:none;
 	}
@@ -914,7 +978,8 @@ body > section > section h2 {
 		margin-top: 50px;
 	}	
 
-	main#terms,main#blogposts {
+	main#terms,
+	main#blogposts {
 		margin-top: 142px;
 		padding:  20px;
 	}

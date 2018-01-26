@@ -316,6 +316,7 @@ window.addEventListener('load',function(){
 			//if there is something loaded in searchdata, browse through.
 			Object.keys(searchData).forEach(function(item,key){
 				searchData[item].inventory.forEach(function(stock){
+					console.log(stock,key)
 					var p = createDOM('a')
 					var name = stock.name.toLowerCase()
 					var image = new Image()
@@ -344,7 +345,7 @@ window.addEventListener('load',function(){
 // https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker
 function addServiceWorker() {
 	if('serviceWorker' in navigator) {		
-		navigator.serviceWorker.register('/sw.js')
+		navigator.serviceWorker.register('../sw.js')
 		.then(function(registration) {
 			console.info('Service worker registered: ',registration.scope)			
 		},function(error) {

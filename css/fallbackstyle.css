@@ -1,4 +1,5 @@
-aside:focus,aside:hover {
+aside:focus,
+aside:hover {
 	width: 50%;
 	overflow: visible;
 	height: auto;
@@ -8,7 +9,8 @@ aside:focus,aside:hover {
 	transition: height 0.3s;
 }
 
-.product figure:nth-of-type(2) img:focus, .product img:focus {
+.product figure:nth-of-type(2) img:focus, 
+.product img:focus {
 	width: 100%;		
 	transition:  width 1s;
 	position: fixed;		
@@ -28,7 +30,8 @@ noscript {
 
 @media (max-width: 560px) {
 
-	form:focus,form:hover {
+	form:focus,
+	form:hover {
 		z-index:110;
 		right:0;
 		width: calc(100% - 20px);
@@ -40,27 +43,30 @@ noscript {
 		background: #602d90;
 	}
 /* https://css-tricks.com/using-multi-step-animations-transitions/ */
-	nav#categories:focus,nav#categories:hover {
+	nav#categories:focus,
+	nav#categories:hover {
 		width: calc(100% - 20px);
 		font-size: 14px!important;
 		margin: 0;
-		height: 197px;
+		height: 353px;
 		padding: 10px;
 		z-index: 110;
 		padding-top: 13px;
 		right: 0;
+		left: 0;
 		cursor: inherit;
 		transition: background 0.3s, height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		background: #a51b1f;
+		/* background: #a51b1f; */
 	}
 }
 
-form:focus:before, aside:focus:before, nav#categories:focus:before {
-  font-size: 18px;
-  padding: 3px;
-  top: 0;
-  float: right;
+form:focus:before, aside:focus:before, nav#categories:focus:before, nav#categories:hover:before {
+  /* font-size: 18px; */
+  /* padding: 3px; */
+  /* top: 0; */
+  float: left;
   cursor: pointer;
   line-height: 21px;
-  height: 30px;
+  height: 200px;
+  /* position:  absolute; */
 }

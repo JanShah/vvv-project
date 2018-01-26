@@ -182,7 +182,7 @@ function loadScript(which) {
 	var script = createDOM('script');
 	// type not needed (W3C html validator)
 	// script.type = 'text/javascript';
-	script.src = 'js/'+which+'.js';
+	script.src = './js/'+which+'.js';
 	document.getElementsByTagName('body')[0].appendChild(script);
 }
 

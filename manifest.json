@@ -2,7 +2,7 @@
 	"short_name":"VVV",
 	"name":"Valiants Vintage Vestures",
 	
-	"start_url":"/index.html",
+	"start_url":"./index.html",
 	"background_color":"#c40e14",
 	"display":"standalone",
 	"theme_color":"#602d90",
