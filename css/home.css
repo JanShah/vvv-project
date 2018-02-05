@@ -443,11 +443,11 @@ aside.expanded > button {
 #checkout input[type='submit'], 
 .product section form > input, 
 aside.expanded > button {
-	float:  right;
+	/* float:  right; */
 	padding:10px;
 	margin: 10px 4px;
 	max-width: 150px;
-	float: right;
+	/* float: right; */
 	background: #2e1846;
 	border: 1px solid #0f0f0d;
 	font-size:  90%;
@@ -574,7 +574,7 @@ main section form input[type='text'],
 main > form input, 
 main > form textarea {
 	width: calc(100% - 180px);
-	float:  right;
+	/* float:  right; */
 	padding: 10px;
 	margin: 10px;
 }
@@ -582,7 +582,7 @@ main > form textarea {
 .product section form > input, 
 main > form input[type='submit'] {
 	max-width: 150px;
-	float:right;
+	/* float:right; */
 	background: #2e1846;
 	border: 1px solid #0f0f0d;
 	padding: 10px;

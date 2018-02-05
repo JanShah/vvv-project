@@ -163,8 +163,8 @@ Product.prototype.displayItem = function() {
 container.id = this.id
 	container.appendChild(gallery);
 	container.appendChild(options);
-	container.appendChild(description);
-	container.appendChild(additional);
+	options.appendChild(description);
+	options.appendChild(additional);
 	return container
 }
 
