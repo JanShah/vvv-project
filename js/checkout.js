@@ -66,7 +66,7 @@ function addTaxes(subtotal,row) {
 	var vatTotal =  subtotal -( subtotal / VAT )
 	subtotal = subtotal - vatTotal
 	var finalTotal = vatTotal + subtotal + shipping
-	var arr = [subtotal,vatTotal,shipping,finalTotal]
+	var arr = [subtotal,vatTotal,shipping===0?'FREE!':shipping,finalTotal]
 	var table = buildTable(arr,row)
 	return table
 }
@@ -77,7 +77,12 @@ function buildTable(data,row) {
 	data.map(function(item,index){
 		var newRow = row.cloneNode(true)
 		newRow.childNodes[0].innerHTML = titles[index]
-		newRow.childNodes[1].innerHTML = item.toFixed(2)
+
+		try{
+			newRow.childNodes[1].innerHTML = item.toFixed(2) 
+		} catch(err) {
+			newRow.childNodes[1].innerHTML = item
+		}
 		temp.appendChild(newRow)
 	})
 	return temp

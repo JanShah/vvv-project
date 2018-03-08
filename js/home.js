@@ -347,11 +347,14 @@ function addServiceWorker() {
 	if('serviceWorker' in navigator) {		
 		navigator.serviceWorker.register('../sw.js')
 		.then(function(registration) {
-			console.info('Service worker registered: ',registration.scope)			
+			// //https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
+			// registration.onupdatefound = function(data) {
+			// 	// console.log('something changed')
+			// };
+			console.info('Service worker registered')			
 		},function(error) {
 			console.error('we got an error',error)
-		}
-	)
+	})
 	}
 }
 
@@ -550,12 +553,13 @@ function getStock(things,callback) {
 	xhr.responseType='json';
 	//need to set this to a high value to accommodate slow networks	
 	xhr.timeout=5000;
-	xhr.send();
-	xhr.onload=function(){
-			// items = xhr.response;
-			//apply the response to 'this' of callback function. 
-			callback.apply(xhr.response);			
+	xhr.onreadystatechange=function(){
+		//apply the response to 'this' of callback function. 
+		if(xhr.readyState===4&&xhr.status===200) {
+			callback.apply(xhr.response);	
+		}
 	}
+	xhr.send();
 }
 
 function stock(item) {

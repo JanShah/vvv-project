@@ -1,4 +1,4 @@
-function Product(details,id){
+function Product(details){
 	this.name = details.name;
 	this.additional = details.additional;
 	this.category = details.category;
@@ -7,7 +7,7 @@ function Product(details,id){
 	this.options = {}
 	this.sizes = details.sizes
 	this.colours = details.colours
-	this.id = id
+	this.id = details.id
 	this.form = ''
 	this.price = details.price
 	this.title = function() {
@@ -85,14 +85,27 @@ Product.prototype.gallery = function() {
 	})
 	return galleryList;
 }
-
-Product.prototype.makeGallery = function() {
-	var section = createDOM('section');
+Product.prototype.getTitle = function(link) {
 	var title = createDOM('h4');
-	title.innerHTML = this.name;
+	if(link) {
+	var linkToCategory = createDOM('a')
+	var urlWord = this.name.toLowerCase().split(/[ ]/).join('-')
+	linkToCategory.href = 'products.html#'+urlWord;
+	linkToCategory.innerHTML = this.name;
+	title.appendChild(linkToCategory)
+	} else {
+
+		title.innerText=this.name;
+	}
+	return title
+}
+
+Product.prototype.makeGallery = function(link) {
+	var section = createDOM('section');
+	var title = this.getTitle(link)
 	var figure = createDOM('figure');
 	//binding the function here to allow additional parameters to be sent. 
-	// when bound, the dom object sent is bound to actual dom object rendered on screen. nice.
+	// when bound, the dom object sent is the actual dom object rendered on screen. nice.
 	
 	this.changeImage = changeImage.bind(this,figure)
 	var caption = createDOM('figcaption');
@@ -167,11 +180,43 @@ container.id = this.id
 	options.appendChild(additional);
 	return container
 }
+Product.prototype.searchResult = function(size) {	
+	var container = createContainer(this.category,true);
+	var gallery = this.makeGallery(true);
+	var options = addToCartForm(this,size)
+	container.id = this.id
+	container.appendChild(gallery);
+	container.appendChild(options);
+	return container
+}
+Product.prototype.briefResult = function(size) {	
+	var container = createContainer(this.category,true);
+	var title = this.getTitle(true)
+	var pic = this.images[0]
+	var price = createDOM('div')
+	var image = new Image()
+	image.src = pic
+	image.alt = this.name
+	price.classList.add('productprice')
+	price.innerHTML = '£'+this.price			
+	container.appendChild(image)
+	container.appendChild(title);
+	container.appendChild(price);
 
-function createContainer(category) {
+	return container
+}
+function createContainer(category,link) {
 	var container= createDOM('section');
 	var heading = createDOM('h3');
-	heading.innerText=category;
+	if(link) {
+		var linkToCategory = createDOM('a')
+		linkToCategory.href = 'products.html#'+category.toLowerCase();
+		linkToCategory.innerHTML = category;
+		heading.appendChild(linkToCategory)
+	} else {
+
+		heading.innerText=category;
+	}
 	if(!document.getElementById(category)) {
 		container.id = category
 	}

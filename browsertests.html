@@ -26,6 +26,20 @@
 	<noscript>
 		<link rel="stylesheet" href="css/fallbackstyle.css">
 	</noscript>
+
+	<style>
+	.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100px; /* Full-width */
+    height: 20px; /* Specified height */
+		background: url('slider.svg'); /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+	}
+</style>
 </head>
 <body>
 	<noscript>please enable Javascript for the full interactive experience</noscript>
@@ -33,6 +47,8 @@
 		<a href="#maincontent" tabindex="0">skip navigation</a>
 	</nav>
 	<header>
+
+		<input class="slider" type="range" min=0 max=24 value="2"/>
 		<h1>Valiants Vintage Vestures</h1>
 		<a href="index.html" tabindex="0">
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-352.7 -263.4 473 383.7"
@@ -117,6 +133,7 @@
 			<a href="products.html#breeches">Breeches</a>
 			<a href="products.html#tunics">Tunics</a>
 			<a href="products.html#cloaks">Cloaks</a>
+			<a href="products.html#dresses">Dresses</a>
 			<a href="category.html">All categories</a>
 			<section>		
 				<h2>Navigation</h2>	

@@ -1,4 +1,5 @@
 self.addEventListener('install',function(event) {
+	console.log('installing')
 	var cacheName = 'vvv-app-cache'
 	var cacheURLs = [
 		'/',
@@ -41,12 +42,17 @@ self.addEventListener('install',function(event) {
 	// know when your install completes, and if it was successful.
 	event.waitUntil(
 		self.caches.open(cacheName)
+		
 		.then(function(cache){
-				// https://developer.mozilla.org/en-US/docs/Web/API/Cache/keys
+			cache.keys().then(function(items) {
+				items.forEach(function(cacheItem){
+					// console.log(cacheItem,caches.delete(cacheItem))
+					caches.delete(cacheItem)
+				})
+			})		// https://developer.mozilla.org/en-US/docs/Web/API/Cache/keys
 				//just looking
 				// cache.keys().then(function(item) {
-				// 	item.forEach(function(request){
-				// 	})
+				// 	console.log(item)
 				// })
 
 				return cache.addAll(cacheURLs)

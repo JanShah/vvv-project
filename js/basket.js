@@ -165,9 +165,9 @@ function basketSubTotal(checkout) {
 			basketTotal += parseFloat(item.price,10) * parseInt(item.qty,10)
 			quantityInBasket+=parseInt(item.qty,10)
 		})
-		var indicator = document.getElementsByTagName('div')[2]
+		var indicator = document.getElementById('shoppingcart').children[4] || document.getElementById('shoppingcart').children[3]
 		var p = document.createElement('p')
-		p.innerHTML = quantityInBasket
+		p.appendChild(document.createTextNode(quantityInBasket))
 		indicator.innerHTML = ''
 		indicator.appendChild(p)
 		var cart = document.getElementById('cartTotal')
@@ -198,7 +198,7 @@ function showBasket(order){
 // todo
 		// var comments = comments.
 		//filter special characters from input.
-		var note = table(order.comments.match(/([\w\d .])/g).join(''))
+		var note = table(order.comments.match(/[\w., ]/g).join(''))
 		
 		note.setAttribute('colspan','3')
 		oNotes.appendChild(note)
