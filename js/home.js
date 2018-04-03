@@ -344,18 +344,19 @@ window.addEventListener('load',function(){
 // https://developers.google.com/web/fundamentals/primers/service-workers/
 // https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker
 function addServiceWorker() {
-	if('serviceWorker' in navigator) {		
-		navigator.serviceWorker.register('../sw.js')
-		.then(function(registration) {
-			// //https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
-			// registration.onupdatefound = function(data) {
-			// 	// console.log('something changed')
-			// };
-			console.info('Service worker registered')			
-		},function(error) {
-			console.error('we got an error',error)
-	})
-	}
+	//todo, sort out a caching strategy that works.
+	// if('serviceWorker' in navigator) {		
+	// 	navigator.serviceWorker.register('../sw.js')
+	// 	.then(function(registration) {
+	// 		// //https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
+	// 		// registration.onupdatefound = function(data) {
+	// 		// 	// console.log('something changed')
+	// 		// };
+	// 		console.info('Service worker registered')			
+	// 	},function(error) {
+	// 		console.error('we got an error',error)
+	// })
+	// }
 }
 
 //use this function to return dom elements

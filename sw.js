@@ -23,7 +23,6 @@ self.addEventListener('install',function(event) {
 		'/css/category.css',
 		'/css/checkout.css',
 		'/data/options.json',
-		'/data/products.json',
 		'/logo-sm.png',
 		'/img/banner1.jpg',
 		'/img/banner2.jpg',
@@ -44,12 +43,8 @@ self.addEventListener('install',function(event) {
 		self.caches.open(cacheName)
 		
 		.then(function(cache){
-			cache.keys().then(function(items) {
-				items.forEach(function(cacheItem){
-					// console.log(cacheItem,caches.delete(cacheItem))
-					caches.delete(cacheItem)
-				})
-			})		// https://developer.mozilla.org/en-US/docs/Web/API/Cache/keys
+
+			// https://developer.mozilla.org/en-US/docs/Web/API/Cache/keys
 				//just looking
 				// cache.keys().then(function(item) {
 				// 	console.log(item)

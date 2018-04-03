@@ -189,7 +189,7 @@ Product.prototype.searchResult = function(size) {
 	container.appendChild(options);
 	return container
 }
-Product.prototype.briefResult = function(size) {	
+Product.prototype.briefResult = function() {	
 	var container = createContainer(this.category,true);
 	var title = this.getTitle(true)
 	var pic = this.images[0]
@@ -202,7 +202,6 @@ Product.prototype.briefResult = function(size) {
 	container.appendChild(image)
 	container.appendChild(title);
 	container.appendChild(price);
-
 	return container
 }
 function createContainer(category,link) {

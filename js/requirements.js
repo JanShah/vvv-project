@@ -5,22 +5,6 @@
 //price
 //size
 //output filtered results to dom
-
-function getProducts() {
-	var stock;
-	var memoized = {};
-	getStock('products',function(){
-		stock = this;
-	});
-	return function (searchData) {
-		var searchString = makeString(searchData);
-		if(!memoized[searchString]) {
-			memoized[searchString] = processSearch(stock,searchData)
-		} 
-		return memoized[searchString];
-	}
-}
-
 var productList = getProducts();
 
 window.onload = function () {
@@ -28,36 +12,63 @@ window.onload = function () {
 	if(window.innerWidth>739) {
 		window.addEventListener('scroll',fixSearchBar,{passive:true});
 	}
-	var min = document.getElementById('minPriceSelected');
-	var max = document.getElementById('maxPriceSelected');
-	var lowPrice = document.getElementById('minPrice').value;
-	var highPrice = document.getElementById('maxPrice').value;
-
-	min.innerHTML = lowPrice;
-	max.innerHTML = highPrice;
-
-	Array.from(document.getElementsByTagName('input')).forEach((item,index)=>{
-		//ignore the first 3 input fields (including the one on top of the page)
-		if(index>2) {
+	var inputs = Array.from(document.getElementsByTagName('input'));
+	inputs.forEach((item,index)=>{
+		//ignore the first input field
+		if(index) {
 			item.addEventListener('change',handleSubmit,{passive:true});
 			if(item.type==='range') {
 				item.addEventListener('input',handleSliders);
 			}
-		}
-		
+		}		
 	});
-	window.setTimeout(function() {
-		handleSliders()
+		handleSliders();
 		handleSubmit();
-	},0);
 }
 
-function makeString(detail) {
-	var searchString = '';
-	for(var thing in detail) {
-		searchString+=detail[thing].toString();
+function getProducts() {
+	var savedSearches = {};
+	var allInventory;
+	var stock = new Promise(function(resolve) {
+		getStock('products',function(){
+			allInventory = processSearch(this);
+			resolve(this);
+		});
+	});
+
+	return function (searchData) {
+		return stock.then(function(data){
+			var result = allInventory(searchData);
+			var resultString = getResultString(result);
+			if(!savedSearches[resultString]) {
+				savedSearches[resultString] = confirmResults(result)
+			} 
+			return savedSearches[resultString];
+		})
 	}
-	return searchString.split(',').join('');
+}
+
+function processSearch(stock) {
+	var results = {};
+	return function(detail) {
+		var hash = JSON.stringify(detail);
+		if(!results[hash]) {
+			var inventory = getAllLines(stock,detail.cat)
+			//'this' is bound to inventory when filters are evaluated
+			var bySize = filterBySize.bind(this,detail.size);
+			var byPrice = filterByPrice.bind(this,[detail.min,detail.max]);
+			var byMF = filterBySex.bind(this,detail.sex);
+			var result = inventory.filter(bySize).filter(byMF).filter(byPrice);
+			results[hash] = result
+		}
+		return results[hash]
+	}
+}
+
+function getResultString(result){
+	var sizeDetails = findSelected('detailed')[0] + findSelected('requiredSize')[0];
+	var hash =  result.map(item=>item.id).join('') + sizeDetails;
+	return hash 	
 }
 
 function handleSliders(event) {
@@ -65,38 +76,19 @@ function handleSliders(event) {
 	var minPrice = document.getElementById('minPrice');
 	var max = changeSlider(maxPrice);
 	var min = changeSlider(minPrice);
-
 	document.getElementById('showmix').innerHTML = `£${min} to £${max}`
 	if(event) {
 		var slider = event.target;
-
 		//max value of min shouldn't be more than value of max
-		if(slider.name==='minPrice') {
-			slider.max = maxPrice.value-2 ;
-		} else if(slider.name==='maxPrice') {
+		if(slider.name==='maxPrice') {
 			minPrice.max = maxPrice.value-2;
 		}
 	}
-
 } 
-
-
-function changeSlider(item) {
-	var target = item.nextElementSibling;
-	var value = Number(item.value);
-	var max = Number(item.max);
-	var width = item.getBoundingClientRect().width;
-	var targetValue = 15+(width/max)*value;
-	target.style.left = targetValue+'px';
-	target.innerHTML = value;
-	return value
-}
-
 
 function handleSubmit(event) {
 	var searchFields = getSearchFields();
 	var searchedEvent = event?event.target.name==='detailed':false;
-
 	if(window.innerHeight<1000&&window.innerWidth>739) {
 		window.scrollTo(0,200);
 	}
@@ -104,19 +96,40 @@ function handleSubmit(event) {
 	searchStock(searchFields,searchedEvent);
 }
 
+function changeSlider(item) {
+	var target = item.previousElementSibling;
+	var value = Number(item.value);
+	var max = Number(item.max);
+	var width = item.getBoundingClientRect().width;
+	var left = item.getBoundingClientRect().left
+	var targetValue = (left - 20) +(width/max)*value;
+	target.style.left = targetValue+'px';
+	target.innerHTML = value;
+	return value
+}
+
 function searchStock(detail) {
-		var filteredStock = productList(detail);
-		confirmResults(filteredStock);
+	var filteredStock = productList(detail);
+	var searchresults = document.getElementById('searchresults');
+	var oldSection 		= searchresults.lastChild;
+	filteredStock.then(function(section){			
+		if(!oldSection) {
+			searchresults.appendChild(section);
+		} else {
+			searchresults.replaceChild(section,oldSection);
+		}
+	})
 }
 
 function confirmResults(stock) {
 	if(stock.length) {
-		displayResults(stock);
+		return displayResults(stock);
 	}
 	else {
-		var searchresults = document.getElementById('searchresults');
-		searchresults.innerHTML = 'no results found';
+		var searchresults = createDOM('div')
+		searchresults.appendChild(document.createTextNode('no results found'));
 		searchresults.style.minHeight = '700px';
+		return searchresults
 	}
 }
 
@@ -132,21 +145,9 @@ function getSearchFields() {
 
 function getAllLines(stock,detail) {
 	var byCategory = mapByCategory.bind(this,stock);
-	return [].concat( ...detail.cat.map(byCategory) )
+	return [].concat( ...detail.map(byCategory) )
 }
 
-
-function processSearch(stock=[],detail={}) {
-	var inventory 		= getAllLines(stock,detail)
-	var byPrice 			= filterByPrice.bind(this,[detail.min,detail.max]);
-	var byMaleFemale 	= filterBySex.bind(this,detail.sex);
-	var bySize 				= filterBySize.bind(this,detail.size);
-
-	return inventory
-		.filter(bySize)
-		.filter(byMaleFemale)
-		.filter(byPrice);
-}
 
 function mapByCategory(stock,category){
 	if(stock.hasOwnProperty(category)) {
@@ -155,10 +156,7 @@ function mapByCategory(stock,category){
 }
 
 function filterByPrice(minMax,item) {
-	var min = minMax[0];
-	var max = minMax[1];
-	var itemPrice = parseFloat(item.price,10);
-	return itemPrice >= min && itemPrice <= max;
+	return item.price >= minMax[0] && item.price <= minMax[1];
 }
 
 function filterBySex(maleFemale,item) {
@@ -185,31 +183,19 @@ function setSliderValues(minMax) {
 	var max 			= document.getElementById('maxPriceSelected');
 	min.innerHTML = minMax[0];
 	max.innerHTML = minMax[1];
-
 }
 
 function displayResults(filteredStock) {
-	var searchresults 		= document.getElementById('searchresults');
-	var oldSection 				= searchresults.lastChild;
 	var section 					= createDOM('section');
 	var lowestPrice 			= 999;
 	var lowestPricedItem 	= null;
-
-	if(!oldSection) {
-		searchresults.appendChild(section);
-	} else {
-		searchresults.replaceChild(section,oldSection);
-	}
-
 	filteredStock.forEach(function(item){
 		var product = new Product(item);
 		var viewSize = findSelected('detailed')[0];
 		var s = findSelected('requiredSize');
 		var priceCheck = parseFloat(item.price,10);
 		var resultBox 	= createDOM('div');
-
 		resultBox.classList.add('product')
-
 		if(priceCheck<lowestPrice)  {
 			lowestPrice = priceCheck;
 			lowestPricedItem = resultBox;
@@ -218,22 +204,24 @@ function displayResults(filteredStock) {
 			resultBox.appendChild(product.searchResult(s));
 		} else if (viewSize==='100') {
 			resultBox.appendChild(product.briefResult());
+			resultBox.classList.add('minimal')
 		}
 		section.appendChild(resultBox)
-
 		window.removeEventListener('scroll',scrollStart,false);
 		window.addEventListener('scroll',scrollStart,false);
-		
+		window.scrollTo(0,window.scrollY+1)
+	
 	})
 	highlightItem(lowestPricedItem);
-	
+	return section
 }
 
 function highlightItem(item) {
-	var img = new Image(140,140);
-	img.src = './img/lowestPrice.svg';
-	img.alt = 'lowest priced item';
-	item.insertBefore(img,item.firstChild);
+	var lowestPrice = new Image(140,140);
+	lowestPrice.src = './img/lowestPrice.svg';
+	lowestPrice.alt = 'lowest priced item';
+	lowestPrice.classList.add('lowestPrice')
+	item.insertBefore(lowestPrice,item.firstChild);
 	item.style.background='#ffd900';
 	item.classList.add('lowest');
 }

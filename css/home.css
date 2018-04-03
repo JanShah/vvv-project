@@ -11,7 +11,7 @@ cite {
 
 header svg {
 	height: 90px;
-	margin: 5px;
+	/* margin: 5px; */
 }
 
 svg > * {
@@ -64,26 +64,40 @@ main {
   vertical-align:top;
 }
 
-#inputForm input[type="range" i] {
+#inputForm input[type="range" ] {
   -webkit-appearance: none;
   background: linear-gradient(to right, #446892 0%, #505c82 100%);
   background-size: 150px 5px;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 40px;
+  margin-top: 10px;
   transition:background-size 0.1s;
+  /* width: 100%; */
+  margin-bottom: 10px;
+  display:  block;
+  height:  30px;
 }
 
-#inputForm input[type="range" i]:focus{
+#inputForm input[type="range"]:focus{
   outline:none;
   background-size: 150px 10px;
 
 }
-#inputForm input[type="range" i]::-webkit-slider-thumb {
+#inputForm input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 10px;
-  height: 25px;
+  height: 10px;
+  margin: 5px 0;
+  border-radius: 50%;
   background: #274160;
+  transition: width 0.2s, height 0.2s;
+}
+
+#inputForm input[type="range"]::-webkit-slider-thumb:hover {
+	background:red;
+	  width: 20px;
+  height: 20px;
+
 }
 
 
@@ -137,12 +151,13 @@ span#showmix {
 
 #searchresults {
   display:  inline-block;
-  width: calc(78% - 5px);
+  width: 80%;
   min-height:  900px;
+  margin-left: -5px;
 }
 
 #searchresults .product img {
-  width: 150px;
+  /* width: 300px; */
   display:  block;
   margin: 5px auto;
 }
@@ -155,6 +170,8 @@ span#minPriceSelected {
   border-radius:  5px;
   width: 28px;
   background:  white;
+  text-align:  center;
+  margin: 6px -4px;
 }
 span#maxPriceSelected {
 	left: 143px;
@@ -166,12 +183,12 @@ span#minPriceSelected {
 span#maxPriceSelected:after,
 span#minPriceSelected:after {
 	content:' ';
-	background: white;
+	background: #d91116;
 	position:absolute;
 	bottom: -6px;
 	left: 14px;
 	transform:rotate(45deg);
-	padding:5px;
+	padding: 5px;
 	border-bottom:  1px solid;
 	border-right:  1px solid;
 	border-radius: 2px;
@@ -179,7 +196,7 @@ span#minPriceSelected:after {
 
 #searchresults > section {
   animation-name: fadeIn;
-  animation-duration: .4s;
+  animation-duration: .5s;
 }
 
 #searchresults > section > div > span {
@@ -210,19 +227,24 @@ span#minPriceSelected:after {
   display: inline-block;
   max-width: calc(50% - 30px);
   vertical-align:  top;
-  padding: 10px 5px;
+  padding: 2px;
   position: relative;
   min-width: 250px;
-  margin: 5px 10px;
-}
-#searchresults .product > section {
-	/* margin: 10px auto!important; */
+  margin: 10px;
+  /* width: calc(25% - 25px); */
 }
 
-.lowest > img {
+#searchresults .product > section {
+	margin:0;
+}
+/* #searchresults .product > section {
+	margin: 10px auto!important;
+} */
+
+.lowest > img.lowestPrice {
   position: absolute;
-  top: -13px;
-  right: -8px;
+  top: -10px;
+  right: -5px;
   margin: 0;
   width: 140px!important;
   cursor: auto!important;
@@ -231,7 +253,7 @@ span#minPriceSelected:after {
 form#advancedSearch input[type='email'],
 form#advancedSearch input[type='text'] {
 	width: 100px;
-	display:  inline;
+	display:  inline-block;
 	padding:  0;
 	margin:  0;
 }
@@ -358,6 +380,7 @@ header {
 header form {
 	width: calc(100%);
 	display: inline-block;
+	margin: 0 auto;
 }
 
 header form fieldset legend {
@@ -413,7 +436,7 @@ header form label {
 #aoptions {
   background: #d35013;
   z-index: 122;
-  display:  block;
+  display: inline-block;
   color:  white;
 }
 
@@ -434,7 +457,7 @@ nav#skipnavigation {
 
 #categories {
 	text-align:  center;
-	background: #fafaff;
+	/* background: #fafaff; */
 	border-top: 1px solid #7d7d7d;
 	border-bottom: 1px solid #7d7d7d;
 }
@@ -522,9 +545,9 @@ nav#categories h2 {
   left: -2000%;
 }
 
-#categories > section nav a {
-	/* color:#2e1846; */
-}
+/* #categories > section nav a {
+	color:#2e1846;
+} */
 
 
 
@@ -577,12 +600,13 @@ nav#skipnavigation {
 
 
 header aside {
+	/* text-align:  right; */
 	z-index: 100;
-	height: 40px;
+	height: 36px;
 	overflow: hidden;
 	position: absolute;
 	right: 0;
-	top: 0;
+	/* top: 0; */
 	padding: 5px;
 	margin-right: 0;
 	width: 160px;
@@ -591,14 +615,16 @@ header aside {
 
 header aside:before {
 	content: url('../img/cart.svg');
-	float: left;
+	/* float: left; */
 	cursor:  pointer;
-	height: 40px;
+	/* height: 40px; */
 	transition:  background 0.2s;
 	margin-top: 0;
 	z-index:  100;
-	margin-left: 0;
+	/* margin-left: 0px; */
 	padding-bottom: 10px;
+	display:  inline-block;
+	width: 40px;
 }
 
 aside:hover, 
@@ -632,7 +658,7 @@ aside.expanded:before {
 aside.expanded a:link, 
 aside.expanded a:visited,
 aside.expanded > button {
-	position: absolute;
+	/* position: absolute; */
 	color: #000;
 	background:  none;
 	top: 10px;
@@ -679,10 +705,14 @@ header aside.expanded {
 
 aside h2,aside h3 {
 	font-size: 1em;
-	margin: 5px 5px 0 10px;
-	border-bottom: 1px solid #6a4701;
-	padding-bottom: 24px;
-	float:  left;
+	/* margin: 5px 5px 0 10px; */
+	/* border-bottom: 1px solid #6a4701; */
+	/* padding-bottom: 24px; */
+	display: inline-block;
+	/* height:  19px; */
+	/* margin: 0; */
+	/* padding: 0 0 15px 0; */
+	vertical-align: top;
 }
 
 aside table {
@@ -847,7 +877,7 @@ footer nav {
 @media (max-width: 1199px) {
 	#inputForm {
 	  display: inline-block;
-	  width: 22%;
+	  width: 25%;
 	  vertical-align:top;
 	}
 	#searchresults .product {
@@ -859,16 +889,20 @@ footer nav {
 
 	header svg {
 	 	height: 75px;
-	 	margin-left: 20px;
+	 	/* margin-left: 20px; */
 	}
 
 	header > a {
-		float:left;
+		/* min-width: 50%; */
+		/* float:left; */
+		display: inline-block;
+		/* text-align:  left; */
 	}
 
 	header aside {
 		width: 190px;
-		top: 20px;
+		top: 30px;
+		display:  inline-block;
 	}
 
 	header h1 {
@@ -881,7 +915,7 @@ footer nav {
 
 	header form {
 		width: calc(100% - 340px);
-		margin: 10px 160px 0 130px;
+		/* margin: 10px 160px 0 130px; */
 		display: block;
 	}
 
@@ -919,7 +953,7 @@ footer nav {
 	}
 
 	header a > svg {
-	  	width: 70px;
+	  	/* width: 70px; */
 	  	height: 65px;
 	}
 	header h1 {
@@ -942,7 +976,7 @@ footer nav {
 
 	header form {
 		width: calc(100% - 40px);
-		margin: 10px auto;
+		/* margin: 10px auto; */
 	}
 
 	footer section h5 {
@@ -1000,15 +1034,16 @@ body > section > section h2 {
 		z-index:  110;
 		position:  relative;
 		color: #2e1846;
-		float:  left;
+		/* float:  left; */
 		overflow-y: auto;
 		max-height: calc(100vh - 100px);
 		padding-bottom: 25px;
 	}
 
 	header aside {
-		width: 40px;
+		width: 60px;
 		top: 0;
+		text-align:  right;
 	}
 
 	header aside button {
@@ -1020,7 +1055,7 @@ body > section > section h2 {
 	}
 
 	aside > a:link {
-		position:absolute;
+		/* position:absolute; */
 		top:0px;
 		right:0;
 		font-size:0;
@@ -1124,7 +1159,7 @@ body > section > section h2 {
 		text-align: center;
 		padding: 6px 0;
 		font-size: 1.5em;
-		float: left;
+		/* float: left; */
 		color: #0f0f0d;
 	}
 	header > nav.expanded > a,
@@ -1142,19 +1177,20 @@ body > section > section h2 {
 	}
 
 	nav#categories {
-		width: 100%;
+		width: 55px;
 		overflow: hidden;
-		height: 50px;
-		text-align: left;
-		background: #e0e5e0;
-		position: absolute;
+		height: 40px;
+		/* text-align: left; */
+		/* background: #e0e5e0; */
+		/* position: absolute; */
 		left: calc(-100% + 50px);
-		top: 0;
+		/* top: 0; */
 		cursor:  pointer;
 		transition: none;
 		margin: 0;
 		padding:  0;
 		border: 0;
+		display: inline-block;
 	}
 
 	nav#categories:before {
@@ -1162,7 +1198,7 @@ body > section > section h2 {
 		height: 40px;
 		margin: 5px 5px;
 		padding:  0;
-		float:  right;
+		/* float:  right; */
 	}
 	
 	nav#categories.expanded:hover {
@@ -1183,9 +1219,9 @@ body > section > section h2 {
 	}
 	header a > svg {
 		height: 46px;
-		width: 100px;
-		margin-top: 2px;
-		margin-bottom: -2px;
+		/* width: 74px; */
+		/* margin-top: 2px; */
+		/* margin-bottom: -2px; */
 	}
 
 	header h1 {
@@ -1201,7 +1237,7 @@ body > section > section h2 {
 	main, #maincontent {
 		padding: 0;
 		background: #e0e5e0;
-		margin-top: 50px;
+		margin-top: 51px;
 	}	
 
 	main#terms,
@@ -1217,14 +1253,15 @@ body > section > section h2 {
 	header form {
 		padding: 5px;
 		margin-right: 0;
-		margin-top: 0;
-		position: absolute;
+		/* margin: 0; */
+		/* position: absolute; */
 		width: 40px;
 		overflow:  hidden;
-		height: 40px;
-		right: 50px;
+		height: 36px;
+		/* right: 50px; */
 		cursor:  pointer;
 		transition:background 0.2s;
+		display:  inline-block;
 	}
 
 	header form:before {
@@ -1279,6 +1316,7 @@ body > section > section h2 {
 	  display: inline-block;
 	  width: 20%;
 	  vertical-align:top;
+	  height: 80vh;
 	}
 
 
